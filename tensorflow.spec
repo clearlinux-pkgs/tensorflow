@@ -36,7 +36,7 @@ mkdir -p %{buildroot}
 mv %{SOURCE10} tensorflow-1.0.0rc0-cp36-cp36m-linux_x86_64.whl
 
 pip3 install --no-deps  --root %{buildroot} tensorflow-1.0.0rc0-cp36-cp36m-linux_x86_64.whl
-for i in `find -name "*.so"  %{buildroot}`; do mv $i $i.avx2 ; done
+for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx2 ; done
 
 mv %{SOURCE20} tensorflow-1.0.0rc0-cp36-cp36m-linux_x86_64.whl
 
@@ -46,3 +46,4 @@ pip3 install --no-deps --force-reinstall  --root %{buildroot} tensorflow-1.0.0rc
 %files
 %defattr(-,root,root,-)
 /usr/lib/python3.6/site-packages
+/usr/bin/tensorboard
