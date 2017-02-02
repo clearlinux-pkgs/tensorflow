@@ -5,6 +5,9 @@ URL      : https://github.com/tensorflow/tensorflow/archive/v1.0.0-alpha.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.0.0-rc0.tar.gz
 Source10 : http://localhost/tensorflow/tensorflow-1.0.0rc0-cp36-cp36m-linux_x86_64.whlavx2
 Source20 : http://localhost/tensorflow/tensorflow-1.0.0rc0-cp36-cp36m-linux_x86_64.whlgeneric
+
+Source100: grab-and-bag.sh
+Source101: answers.txt
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0 GPL-3.0 MPL-2.0-no-copyleft-exception
