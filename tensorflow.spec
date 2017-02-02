@@ -21,6 +21,11 @@ BuildRequires : six
 BuildRequires : protobuf
 BuildRequires : protobuf-c
 
+
+
+%define __strip /bin/true
+%define debug_package %{nil}
+
 %description
 TensorFlow
 
