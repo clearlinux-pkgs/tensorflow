@@ -1,0 +1,25 @@
+--- tensorflow-1.0.0-rc0/tensorflow/core/kernels/lrn_op.cc~	2017-01-26 18:57:25.000000000 +0000
++++ tensorflow-1.0.0-rc0/tensorflow/core/kernels/lrn_op.cc	2017-02-03 04:27:22.164665264 +0000
+@@ -347,16 +347,21 @@
+           int64 depth_end = std::min<int64>(depth, j + depth_radius_ + 1);
+ 
+           T norm(0);
++	    T normbeta(0);
+           for (int64 k = depth_begin; k < depth_end; ++k) {
+             norm += in_shaped(i, k) * in_shaped(i, k);
+           }
+           norm = alpha_ * norm + bias_;
+           DCHECK_GT(norm, T(1e-6));
++	   if (norm == T(1))
++		  normbeta = T(1);
++	   else
++  		  normbeta = Eigen::numext::pow(norm, -beta_);
+           for (int64 k = depth_begin; k < depth_end; ++k) {
+             T dyi = T(-2) * alpha_ * beta_ * in_shaped(i, k) *
+                     activations(i, j) / norm;
+             if (k == j) {
+-              dyi += Eigen::numext::pow(norm, -beta_);
++              dyi += normbeta;
+             }
+             dyi *= grads_shaped(i, j);
+             const_cast<typename TTypes<T, 2>::Tensor&>(out_shaped)(i, k) += dyi;
