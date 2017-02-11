@@ -37,10 +37,10 @@ TensorFlow
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1485959255
+export SOURCE_DATE_EPOCH=1485959355
 
 %install
-export SOURCE_DATE_EPOCH=1485959255
+export SOURCE_DATE_EPOCH=1485959355
 rm -rf %{buildroot}
 mkdir -p %{buildroot}
 
