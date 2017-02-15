@@ -1,11 +1,11 @@
 Name     : tensorflow
-Version  : 1.0.0rc2
+Version  : 1.0.0
 Release  : 6
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.0.0-alpha.tar.gz
-Source0  : https://github.com/tensorflow/tensorflow/archive/v1.0.0-rc2.tar.gz
-Source10 : http://localhost/tensorflow/tensorflow-1.0.0rc2-cp36-cp36m-linux_x86_64.whlavx2
-#Source15 : http://localhost/tensorflow/tensorflow-1.0.0rc2-cp36-cp36m-linux_x86_64.whlavx512
-Source20 : http://localhost/tensorflow/tensorflow-1.0.0rc2-cp36-cp36m-linux_x86_64.whlgeneric
+Source0  : https://github.com/tensorflow/tensorflow/archive/v1.0.0.tar.gz
+Source10 : http://localhost/tensorflow/tensorflow-1.0.0-cp36-cp36m-linux_x86_64.whlavx2
+#Source15 : http://localhost/tensorflow/tensorflow-1.0.0-cp36-cp36m-linux_x86_64.whlavx512
+Source20 : http://localhost/tensorflow/tensorflow-1.0.0-cp36-cp36m-linux_x86_64.whlgeneric
 
 Source100: grab-and-bag.sh
 Source101: answers.txt
@@ -33,7 +33,7 @@ BuildRequires : protobuf-c
 TensorFlow
 
 %prep
-%setup -q  -n tensorflow-1.0.0-rc2
+%setup -q  -n tensorflow-1.0.0
 
 %build
 export LANG=C
@@ -44,19 +44,19 @@ export SOURCE_DATE_EPOCH=1485959355
 rm -rf %{buildroot}
 mkdir -p %{buildroot}
 
-mv %{SOURCE10} tensorflow-1.0.0rc2-cp36-cp36m-linux_x86_64.whl
+mv %{SOURCE10} tensorflow-1.0.0-cp36-cp36m-linux_x86_64.whl
 
-pip3 install --no-deps  --root %{buildroot} tensorflow-1.0.0rc2-cp36-cp36m-linux_x86_64.whl
+pip3 install --no-deps  --root %{buildroot} tensorflow-1.0.0-cp36-cp36m-linux_x86_64.whl
 for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx2 ; done
 
-#mv %{SOURCE15} tensorflow-1.0.0rc2-cp36-cp36m-linux_x86_64.whl
+#mv %{SOURCE15} tensorflow-1.0.0-cp36-cp36m-linux_x86_64.whl
 
-#pip3 install --no-deps  --root %{buildroot} tensorflow-1.0.0rc2-cp36-cp36m-linux_x86_64.whl
+#pip3 install --no-deps  --root %{buildroot} tensorflow-1.0.0-cp36-cp36m-linux_x86_64.whl
 #for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx512 ; done
 
-mv %{SOURCE20} tensorflow-1.0.0rc2-cp36-cp36m-linux_x86_64.whl
+mv %{SOURCE20} tensorflow-1.0.0-cp36-cp36m-linux_x86_64.whl
 
-pip3 install --no-deps --force-reinstall  --root %{buildroot} tensorflow-1.0.0rc2-cp36-cp36m-linux_x86_64.whl
+pip3 install --no-deps --force-reinstall  --root %{buildroot} tensorflow-1.0.0-cp36-cp36m-linux_x86_64.whl
 
 
 %files
