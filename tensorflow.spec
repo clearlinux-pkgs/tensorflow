@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.0.0
-Release  : 7
+Release  : 8
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.0.0-alpha.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.0.0.tar.gz
 Source10 : http://localhost/tensorflow/tensorflow-1.0.0-cp36-cp36m-linux_x86_64.whlavx2
