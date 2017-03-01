@@ -1,0 +1,36 @@
+commit 25d179d9b92b34e99ec09ed930f5f4e2e8da3c49
+Author: Vamsi Sripathi <vamsi.sripathi@intel.com>
+Date:   Tue Feb 28 18:37:49 2017 -0800
+
+    More fixes for AVX512 compilation.
+
+diff --git a/tensorflow/core/kernels/eigen_pooling.h b/tensorflow/core/kernels/eigen_pooling.h
+index e13c8b983..d954b94be 100644
+--- a/tensorflow/core/kernels/eigen_pooling.h
++++ b/tensorflow/core/kernels/eigen_pooling.h
+@@ -331,8 +331,10 @@ struct AvgPoolMeanReducer {
+ #if (EIGEN_ARCH_i386 || EIGEN_ARCH_x86_64) && !defined(__CUDACC__)
+ #ifdef EIGEN_VECTORIZE_AVX512
+ #define pequal(a, b) \
+-  _mm512_maskz_set1_epi32(_mm512_cmp_ps_mask(a, b, _CMP_EQ_UQ), -1)
+-#define psel(a, b, false_mask) _mm512_ternarylogic_epi64(false_mask, a, b, 0xca)
++  _mm512_castsi512_ps(_mm512_maskz_set1_epi32(_mm512_cmp_ps_mask(a, b, _CMP_EQ_UQ), -1))
++#define psel(a, b, false_mask) \
++  _mm512_castsi512_ps(_mm512_ternarylogic_epi32(_mm512_castps_si512(false_mask),\
++                            _mm512_castps_si512(a), _mm512_castps_si512(b), 0xca))
+ #elif defined EIGEN_VECTORIZE_AVX
+ #define pequal(a, b) _mm256_cmp_ps(a, b, _CMP_EQ_UQ)
+ #define psel(a, b, false_mask) _mm256_blendv_ps(a, b, false_mask)
+diff --git a/third_party/eigen3/unsupported/Eigen/CXX11/FixedPoint b/third_party/eigen3/unsupported/Eigen/CXX11/FixedPoint
+index b0a73aac7..eb604d38b 100644
+--- a/third_party/eigen3/unsupported/Eigen/CXX11/FixedPoint
++++ b/third_party/eigen3/unsupported/Eigen/CXX11/FixedPoint
+@@ -31,7 +31,7 @@
+ #include "src/FixedPoint/FixedPointTypes.h"
+ 
+ // Use optimized implementations whenever available
+-#ifdef EIGEN_VECTORIZE_AVX512
++#if defined (EIGEN_VECTORIZE_AVX512DQ) || defined (EIGEN_VECTORIZE_AVX512BW)
+ #include "src/FixedPoint/PacketMathAVX512.h"
+ #include "src/FixedPoint/TypeCastingAVX512.h"
+ 
