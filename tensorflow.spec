@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.0.0
-Release  : 9
+Release  : 10
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.0.0-alpha.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.0.0.tar.gz
 Source10 : http://localhost/tensorflow/tensorflow-1.0.0-cp36-cp36m-linux_x86_64.whlavx2
@@ -45,10 +45,10 @@ mv %{SOURCE10} tensorflow-1.0.0-cp36-cp36m-linux_x86_64.whl
 pip3 install --no-deps  --root %{buildroot} tensorflow-1.0.0-cp36-cp36m-linux_x86_64.whl
 for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx2 ; done
 
-mv %{SOURCE15} tensorflow-1.0.0-cp36-cp36m-linux_x86_64.whl
+#mv %{SOURCE15} tensorflow-1.0.0-cp36-cp36m-linux_x86_64.whl
 
-pip3 install --no-deps  --root %{buildroot} tensorflow-1.0.0-cp36-cp36m-linux_x86_64.whl
-for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx512 ; done
+#pip3 install --no-deps  --root %{buildroot} tensorflow-1.0.0-cp36-cp36m-linux_x86_64.whl
+#for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx512 ; done
 
 mv %{SOURCE20} tensorflow-1.0.0-cp36-cp36m-linux_x86_64.whl
 
