@@ -1,6 +1,11 @@
 /usr/bin/python3
-n
-n
 
+n
+-O3
+y
+n
+n
+n
+n
 n
 n
