@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.2.0
-Release  : 12
+Release  : 13
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.2.0.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.2.0.tar.gz
 Source10 : http://localhost/tensorflow/tensorflow-1.2.0-cp36-cp36m-linux_x86_64.whlavx2
@@ -24,8 +24,10 @@ BuildRequires : six
 BuildRequires : protobuf
 BuildRequires : protobuf-c
 
-Requires: Werkzeug
 
+Requires: Werkzeug
+Requires: Markdown
+Requires: bleach
 
 %description
 TensorFlow
