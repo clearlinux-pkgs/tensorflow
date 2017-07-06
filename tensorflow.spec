@@ -11,6 +11,8 @@ Source100: grab-and-bag.sh
 Source101: answers.txt
 Source102: powf.patch
 
+Patch1: 0001-Example-ipynb-code-for-machine-learning-tutorial.patch
+
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0 GPL-3.0 MPL-2.0-no-copyleft-exception
@@ -35,6 +37,7 @@ TensorFlow
 
 %prep
 %setup -q  -n tensorflow-1.2.0
+%patch1 -p1
 
 %build
 export LANG=C
@@ -59,9 +62,12 @@ mv %{SOURCE20} tensorflow-1.2.0-cp36-cp36m-linux_x86_64.whl
 
 pip3 install --no-deps --force-reinstall  --root %{buildroot} tensorflow-1.2.0-cp36-cp36m-linux_x86_64.whl
 
+mkdir -p %{buildroot}/usr/share/docs/
+cp %{_builddir}/tensorflow-1.2.0/tensorflow/docs_src/tutorials/MNIST_example.ipynb %buildroot/usr/share/docs/MNIST_example.ipynb
 
 %files
 %defattr(-,root,root,-)
 /usr/lib/python3.6/site-packages
 /usr/bin/tensorboard
 /usr/bin/saved_model_cli
+/usr/share/docs/*
