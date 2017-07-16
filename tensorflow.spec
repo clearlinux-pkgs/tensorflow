@@ -63,7 +63,7 @@ mv %{SOURCE20} tensorflow-1.2.1-cp36-cp36m-linux_x86_64.whl
 pip3 install --no-deps --force-reinstall  --root %{buildroot} tensorflow-1.2.1-cp36-cp36m-linux_x86_64.whl
 
 mkdir -p %{buildroot}/usr/share/doc/tensorflow/
-cp %{_builddir}/tensorflow-1.2.1/tensorflow/docs_src/tutorials/MNIST_example.ipynb %buildroot/usr/share/doc/tensorflow/MNIST_example.ipynb
+cp tensorflow/docs_src/tutorials/MNIST_example.ipynb %{buildroot}/usr/share/doc/tensorflow/MNIST_example.ipynb
 
 %files
 %defattr(-,root,root,-)
