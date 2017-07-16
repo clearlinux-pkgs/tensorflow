@@ -1,11 +1,11 @@
 Name     : tensorflow
-Version  : 1.2.0
+Version  : 1.2.1
 Release  : 15
-URL      : https://github.com/tensorflow/tensorflow/archive/v1.2.0.tar.gz
-Source0  : https://github.com/tensorflow/tensorflow/archive/v1.2.0.tar.gz
-Source10 : http://localhost/tensorflow/tensorflow-1.2.0-cp36-cp36m-linux_x86_64.whlavx2
-#Source15 : http://localhost/tensorflow/tensorflow-1.2.0-cp36-cp36m-linux_x86_64.whlavx512
-Source20 : http://localhost/tensorflow/tensorflow-1.2.0-cp36-cp36m-linux_x86_64.whlgeneric
+URL      : https://github.com/tensorflow/tensorflow/archive/v1.2.1.tar.gz
+Source0  : https://github.com/tensorflow/tensorflow/archive/v1.2.1.tar.gz
+Source10 : http://localhost/tensorflow/tensorflow-1.2.1-cp36-cp36m-linux_x86_64.whlavx2
+#Source15 : http://localhost/tensorflow/tensorflow-1.2.1-cp36-cp36m-linux_x86_64.whlavx512
+Source20 : http://localhost/tensorflow/tensorflow-1.2.1-cp36-cp36m-linux_x86_64.whlgeneric
 
 Source100: grab-and-bag.sh
 Source101: answers.txt
@@ -36,7 +36,7 @@ Requires: backports.weakref
 TensorFlow
 
 %prep
-%setup -q  -n tensorflow-1.2.0
+%setup -q  -n tensorflow-1.2.1
 %patch1 -p1
 
 %build
@@ -48,26 +48,26 @@ export SOURCE_DATE_EPOCH=1485959355
 rm -rf %{buildroot}
 mkdir -p %{buildroot}
 
-mv %{SOURCE10} tensorflow-1.2.0-cp36-cp36m-linux_x86_64.whl
+mv %{SOURCE10} tensorflow-1.2.1-cp36-cp36m-linux_x86_64.whl
 
-pip3 install --no-deps  --root %{buildroot} tensorflow-1.2.0-cp36-cp36m-linux_x86_64.whl
+pip3 install --no-deps  --root %{buildroot} tensorflow-1.2.1-cp36-cp36m-linux_x86_64.whl
 for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx2 ; done
 
-#mv %{SOURCE15} tensorflow-1.2.0-cp36-cp36m-linux_x86_64.whl
+#mv %{SOURCE15} tensorflow-1.2.1-cp36-cp36m-linux_x86_64.whl
 #
-#pip3 install --no-deps  --root %{buildroot} tensorflow-1.2.0-cp36-cp36m-linux_x86_64.whl
+#pip3 install --no-deps  --root %{buildroot} tensorflow-1.2.1-cp36-cp36m-linux_x86_64.whl
 #for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx512 ; done
 
-mv %{SOURCE20} tensorflow-1.2.0-cp36-cp36m-linux_x86_64.whl
+mv %{SOURCE20} tensorflow-1.2.1-cp36-cp36m-linux_x86_64.whl
 
-pip3 install --no-deps --force-reinstall  --root %{buildroot} tensorflow-1.2.0-cp36-cp36m-linux_x86_64.whl
+pip3 install --no-deps --force-reinstall  --root %{buildroot} tensorflow-1.2.1-cp36-cp36m-linux_x86_64.whl
 
-mkdir -p %{buildroot}/usr/share/docs/
-cp %{_builddir}/tensorflow-1.2.0/tensorflow/docs_src/tutorials/MNIST_example.ipynb %buildroot/usr/share/docs/MNIST_example.ipynb
+mkdir -p %{buildroot}/usr/share/doc/tensorflow/
+cp %{_builddir}/tensorflow-1.2.1/tensorflow/docs_src/tutorials/MNIST_example.ipynb %buildroot/usr/share/doc/tensorflow/MNIST_example.ipynb
 
 %files
 %defattr(-,root,root,-)
 /usr/lib/python3.6/site-packages
 /usr/bin/tensorboard
 /usr/bin/saved_model_cli
-/usr/share/docs/*
+/usr/share/doc/*
