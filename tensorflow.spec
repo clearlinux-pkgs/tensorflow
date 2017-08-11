@@ -10,8 +10,7 @@ Source20 : http://localhost/tensorflow/tensorflow-1.2.1-cp36-cp36m-linux_x86_64.
 Source100: grab-and-bag.sh
 Source101: answers.txt
 Source102: powf.patch
-
-Patch1: 0001-Example-ipynb-code-for-machine-learning-tutorial.patch
+Source103: MNIST_example.ipynb
 
 Summary  : No detailed summary available
 Group    : Development/Tools
@@ -37,7 +36,6 @@ TensorFlow
 
 %prep
 %setup -q  -n tensorflow-1.2.1
-%patch1 -p1
 
 %build
 export LANG=C
@@ -63,7 +61,7 @@ mv %{SOURCE20} tensorflow-1.2.1-cp36-cp36m-linux_x86_64.whl
 pip3 install --no-deps --force-reinstall  --root %{buildroot} tensorflow-1.2.1-cp36-cp36m-linux_x86_64.whl
 
 mkdir -p %{buildroot}/usr/share/doc/tensorflow/
-cp tensorflow/docs_src/tutorials/MNIST_example.ipynb %{buildroot}/usr/share/doc/tensorflow/MNIST_example.ipynb
+mv %{SOURCE103} %{buildroot}/usr/share/doc/tensorflow/MNIST_example.ipynb
 
 %files
 %defattr(-,root,root,-)
