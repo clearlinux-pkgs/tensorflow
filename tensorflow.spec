@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.2.1
-Release  : 15
+Release  : 16
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.2.1.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.2.1.tar.gz
 Source10 : http://localhost/tensorflow/tensorflow-1.2.1-cp36-cp36m-linux_x86_64.whlavx2
