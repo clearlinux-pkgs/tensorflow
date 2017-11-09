@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.4.0
-Release  : 19
+Release  : 20
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.4.0.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.4.0.tar.gz
 Source10 : http://localhost/tensorflow/tensorflow-1.4.0-cp36-cp36m-linux_x86_64.whlavx2
@@ -31,6 +31,7 @@ Requires: Markdown
 Requires: bleach
 Requires: backports.weakref
 Requires: tensorboard
+Requires: enum34
 
 %description
 TensorFlow
