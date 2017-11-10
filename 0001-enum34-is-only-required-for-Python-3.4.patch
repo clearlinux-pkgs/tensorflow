@@ -1,0 +1,36 @@
+From 9101d7e7109071a378af0cc37c69892414511099 Mon Sep 17 00:00:00 2001
+From: Kenneth Hoste <kenneth.hoste@ugent.be>
+Date: Thu, 9 Nov 2017 21:38:19 +0100
+Subject: [PATCH] enum34 is only required for Python < 3.4
+
+---
+ tensorflow/tools/pip_package/setup.py | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/tensorflow/tools/pip_package/setup.py b/tensorflow/tools/pip_package/setup.py
+index fc2e3e6..88a01fb 100644
+--- a/tensorflow/tools/pip_package/setup.py
++++ b/tensorflow/tools/pip_package/setup.py
+@@ -32,7 +32,6 @@ from setuptools.dist import Distribution
+ _VERSION = '1.4.0'
+ 
+ REQUIRED_PACKAGES = [
+-    'enum34 >= 1.1.6',
+     'numpy >= 1.12.1',
+     'six >= 1.10.0',
+     'protobuf >= 3.3.0',
+@@ -46,6 +45,11 @@ if '--project_name' in sys.argv:
+   sys.argv.remove('--project_name')
+   sys.argv.pop(project_name_idx)
+ 
++# enum34 is only required for Python 3.4 or older
++# see https://bitbucket.org/stoneleaf/enum34/issues/19
++if not (sys.version_info.major >= 3 and sys.version_info.minor >= 4):
++        REQUIRED_PACKAGES.append('enum34 >= 1.1.6')
++
+ # python3 requires wheel 0.26
+ if sys.version_info.major == 3:
+   REQUIRED_PACKAGES.append('wheel >= 0.26')
+-- 
+2.15.0
+

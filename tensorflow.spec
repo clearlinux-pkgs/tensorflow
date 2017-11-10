@@ -12,6 +12,8 @@ Source101: answers.txt
 Source102: powf.patch
 Source103: MNIST_example.ipynb
 
+Patch1   : 0001-enum34-is-only-required-for-Python-3.4.patch
+
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0 GPL-3.0 MPL-2.0-no-copyleft-exception
@@ -31,13 +33,13 @@ Requires: Markdown
 Requires: bleach
 Requires: backports.weakref
 Requires: tensorboard
-Requires: enum34
 
 %description
 TensorFlow
 
 %prep
 %setup -q  -n tensorflow-1.4.0
+%patch1 -p1
 
 %build
 export LANG=C
