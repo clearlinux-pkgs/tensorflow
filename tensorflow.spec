@@ -12,7 +12,7 @@ Source101: answers.txt
 Source102: powf.patch
 Source103: MNIST_example.ipynb
 
-Patch1   : 0001-enum34-is-only-required-for-Python-3.4.patch
+Source104: 0001-enum34-is-only-required-for-Python-3.4.patch
 
 Summary  : No detailed summary available
 Group    : Development/Tools
@@ -39,7 +39,6 @@ TensorFlow
 
 %prep
 %setup -q  -n tensorflow-1.4.0
-%patch1 -p1
 
 %build
 export LANG=C
@@ -54,11 +53,16 @@ mv %{SOURCE10} tensorflow-1.4.0-cp36-cp36m-linux_x86_64.whl
 
 pip3 install --no-deps  --root %{buildroot} tensorflow-1.4.0-cp36-cp36m-linux_x86_64.whl
 for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx2 ; done
+mkdir -p %{buildroot}/usr/lib/python3.6/site-packages/tensorflow/haswell/avx512_1
+mv %{buildroot}//usr/lib/python3.6/site-packages/tensorflow/libtensorflow_framework.so.avx2 %{buildroot}/usr/lib/python3.6/site-packages/tensorflow/haswell/libtensorflow_framework.so
 
 #mv %{SOURCE15} tensorflow-1.4.0-cp36-cp36m-linux_x86_64.whl
-
+#
 #pip3 install --no-deps  --root %{buildroot} tensorflow-1.4.0-cp36-cp36m-linux_x86_64.whl
 #for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx512 ; done
+
+ 
+#mv %{buildroot}/usr/lib/python3.6/site-packages/tensorflow/libtensorflow_framework.so.avx512 %{buildroot}/usr/lib/python3.6/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
 
 mv %{SOURCE20} tensorflow-1.4.0-cp36-cp36m-linux_x86_64.whl
 
@@ -66,6 +70,10 @@ pip3 install --no-deps --force-reinstall  --root %{buildroot} tensorflow-1.4.0-c
 
 mkdir -p %{buildroot}/usr/share/doc/tensorflow/
 mv %{SOURCE103} %{buildroot}/usr/share/doc/tensorflow/MNIST_example.ipynb
+
+pushd %{buildroot}/usr/lib/python3.6/site-packages/tensorflow
+cat %{SOURCE104} | patch -p1
+popd
 
 %files
 %defattr(-,root,root,-)
