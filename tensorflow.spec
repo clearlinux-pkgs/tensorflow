@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.4.0
-Release  : 21
+Release  : 22
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.4.0.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.4.0.tar.gz
 Source10 : http://localhost/tensorflow/tensorflow-1.4.0-cp36-cp36m-linux_x86_64.whlavx2
@@ -71,7 +71,7 @@ pip3 install --no-deps --force-reinstall  --root %{buildroot} tensorflow-1.4.0-c
 mkdir -p %{buildroot}/usr/share/doc/tensorflow/
 mv %{SOURCE103} %{buildroot}/usr/share/doc/tensorflow/MNIST_example.ipynb
 
-pushd %{buildroot}/usr/lib/python3.6/site-packages/tensorflow
+pushd %{buildroot}/usr/lib/python3.6/site-packages
 cat %{SOURCE104} | patch -p1
 popd
 
