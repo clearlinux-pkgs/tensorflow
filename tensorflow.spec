@@ -33,6 +33,8 @@ Requires: Markdown
 Requires: bleach
 Requires: backports.weakref
 Requires: tensorboard
+Requires: absl-py
+
 
 %description
 TensorFlow
