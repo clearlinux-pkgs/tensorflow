@@ -50,25 +50,27 @@ export SOURCE_DATE_EPOCH=1485959355
 export SOURCE_DATE_EPOCH=1485959355
 rm -rf %{buildroot}
 mkdir -p %{buildroot}
+mkdir -p %{buildroot}/usr/lib/python3.6/site-packages/tensorflow/haswell/avx512_1
+
 
 mv %{SOURCE10} tensorflow-1.5.0-cp36-cp36m-linux_x86_64.whl
-
 pip3 install --no-deps  --root %{buildroot} tensorflow-1.5.0-cp36-cp36m-linux_x86_64.whl
 for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx2 ; done
-mkdir -p %{buildroot}/usr/lib/python3.6/site-packages/tensorflow/haswell/avx512_1
 mv %{buildroot}//usr/lib/python3.6/site-packages/tensorflow/libtensorflow_framework.so.avx2 %{buildroot}/usr/lib/python3.6/site-packages/tensorflow/haswell/libtensorflow_framework.so
 
-mv %{SOURCE15} tensorflow-1.5.0-cp36-cp36m-linux_x86_64.whl
 
-pip3 install --no-deps  --root %{buildroot} tensorflow-1.5.0-cp36-cp36m-linux_x86_64.whl
-for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx512 ; done
-
- 
-mv %{buildroot}/usr/lib/python3.6/site-packages/tensorflow/libtensorflow_framework.so.avx512 %{buildroot}/usr/lib/python3.6/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
+#mv %{SOURCE15} tensorflow-1.5.0-cp36-cp36m-linux_x86_64.whl
+#pip3 install --no-deps  --root %{buildroot} tensorflow-1.5.0-cp36-cp36m-linux_x86_64.whl
+#for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx512 ; done
+#mv %{buildroot}/usr/lib/python3.6/site-packages/tensorflow/libtensorflow_framework.so.avx512 %{buildroot}/usr/lib/python3.6/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
 
 mv %{SOURCE20} tensorflow-1.5.0-cp36-cp36m-linux_x86_64.whl
-
 pip3 install --no-deps --force-reinstall  --root %{buildroot} tensorflow-1.5.0-cp36-cp36m-linux_x86_64.whl
+
+
+
+
+
 
 mkdir -p %{buildroot}/usr/share/doc/tensorflow/
 mv %{SOURCE103} %{buildroot}/usr/share/doc/tensorflow/MNIST_example.ipynb
