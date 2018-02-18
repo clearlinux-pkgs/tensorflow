@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.5.0
-Release  : 28
+Release  : 29
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.5.0.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.5.0.tar.gz
 Source10 : http://localhost/tensorflow/tensorflow-1.5.0-cp36-cp36m-linux_x86_64.whlavx2
@@ -59,10 +59,10 @@ for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx2 ; done
 mv %{buildroot}//usr/lib/python3.6/site-packages/tensorflow/libtensorflow_framework.so.avx2 %{buildroot}/usr/lib/python3.6/site-packages/tensorflow/haswell/libtensorflow_framework.so
 
 
-#mv %{SOURCE15} tensorflow-1.5.0-cp36-cp36m-linux_x86_64.whl
-#pip3 install --no-deps  --root %{buildroot} tensorflow-1.5.0-cp36-cp36m-linux_x86_64.whl
-#for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx512 ; done
-#mv %{buildroot}/usr/lib/python3.6/site-packages/tensorflow/libtensorflow_framework.so.avx512 %{buildroot}/usr/lib/python3.6/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
+mv %{SOURCE15} tensorflow-1.5.0-cp36-cp36m-linux_x86_64.whl
+pip3 install --no-deps  --root %{buildroot} tensorflow-1.5.0-cp36-cp36m-linux_x86_64.whl
+for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx512 ; done
+mv %{buildroot}/usr/lib/python3.6/site-packages/tensorflow/libtensorflow_framework.so.avx512 %{buildroot}/usr/lib/python3.6/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
 
 mv %{SOURCE20} tensorflow-1.5.0-cp36-cp36m-linux_x86_64.whl
 pip3 install --no-deps --force-reinstall  --root %{buildroot} tensorflow-1.5.0-cp36-cp36m-linux_x86_64.whl
