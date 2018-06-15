@@ -18,7 +18,7 @@ Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0 GPL-3.0 MPL-2.0-no-copyleft-exception
 BuildRequires : pip
-BuildRequires : python-dev
+
 BuildRequires : python3-dev
 BuildRequires : setuptools
 BuildRequires : wheel
