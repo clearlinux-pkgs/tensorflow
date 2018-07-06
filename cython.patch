@@ -15,14 +15,3 @@
        build_file = clean_dep("//third_party:cython.BUILD"),
        delete = ["BUILD.bazel"],
    )
---- tensorflow-1.9.0-rc2/tensorflow/python/lib/core/ndarray_tensor.cc~	2018-07-02 22:07:51.000000000 +0000
-+++ tensorflow-1.9.0-rc2/tensorflow/python/lib/core/ndarray_tensor.cc	2018-07-03 17:56:26.060367011 +0000
-@@ -148,7 +148,7 @@
-     if (!item) {
-       return errors::Internal("Unable to get element from the feed - no item.");
-     }
--    char* ptr;
-+    const char* ptr;
-     Py_ssize_t len;
- 
-     if (PyUnicode_Check(item.get())) {
