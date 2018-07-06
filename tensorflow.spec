@@ -167,11 +167,26 @@ InstallCache %{SOURCE56}
 bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  -c opt --copt=-g1 --copt=-Wno-sign-compare --copt=-O3 //tensorflow/tools/pip_package:build_pip_package
 bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp
 
+bazel clean
+export TF_BUILD_MAVX=MAVX2
+./configure < %{SOURCE101}
+mkdir /tmp/avx2
+bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  -c opt --copt=-mavx2 --copt=-O3 --copt=-march=haswell --copt=-mfma --copt=-g1 --cxxopt=-fpermissive   //tensorflow/tools/pip_package:build_pip_package
+bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx2/
+
 
 
 
 %install
 export SOURCE_DATE_EPOCH=1485959355
+
+pip3 install --no-deps  --root %{buildroot} /tmp/avx2/tensorflow-1.9.0rc0-cp37-cp37m-linux_x86_64.whl
+for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx2 ; done
+mv %{buildroot}//usr/lib/python3.6/site-packages/tensorflow/libtensorflow_framework.so.avx2 %{buildroot}/usr/lib/python3.6/site-packages/tensorflow/haswell/libtensorflow_framework.so
+
+
+pip3 install --no-deps --force-reinstall  --root %{buildroot} /tmp/tensorflow-1.9.0rc0-cp37-cp37m-linux_x86_64.whl
+							           
 
 %files
 %defattr(-,root,root,-)

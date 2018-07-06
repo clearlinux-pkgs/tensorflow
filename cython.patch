@@ -15,3 +15,25 @@
        build_file = clean_dep("//third_party:cython.BUILD"),
        delete = ["BUILD.bazel"],
    )
+--- tensorflow-1.9.0-rc2/tensorflow/c/eager/c_api.h~	2018-07-02 22:07:51.000000000 +0000
++++ tensorflow-1.9.0-rc2/tensorflow/c/eager/c_api.h	2018-07-06 19:34:09.121676588 +0000
+@@ -76,7 +76,7 @@
+ // Sets the default execution mode (sync/async). Note that this can be
+ // overridden per thread using TFE_ContextSetAsyncForThread.
+ TF_CAPI_EXPORT extern void TFE_ContextOptionsSetAsync(TFE_ContextOptions*,
+-                                                      unsigned char async);
++                                                      unsigned char async_);
+ 
+ TF_CAPI_EXPORT extern void TFE_ContextOptionsSetDevicePlacementPolicy(
+     TFE_ContextOptions*, TFE_ContextDevicePlacementPolicy);
+--- tensorflow-1.9.0-rc2/tensorflow/c/eager/c_api.h~	2018-07-06 19:34:09.000000000 +0000
++++ tensorflow-1.9.0-rc2/tensorflow/c/eager/c_api.h	2018-07-06 19:52:22.338661368 +0000
+@@ -125,7 +125,7 @@
+ 
+ // Overrides the execution mode (sync/async) for the current thread.
+ TF_CAPI_EXPORT extern void TFE_ContextSetAsyncForThread(TFE_Context*,
+-                                                        unsigned char async,
++                                                        unsigned char async_,
+                                                         TF_Status* status);
+ 
+ // Causes the calling thread to block till all ops dispatched in async mode
