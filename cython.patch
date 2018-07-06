@@ -1,0 +1,28 @@
+--- tensorflow-1.9.0-rc2/tensorflow/workspace.bzl~	2018-07-02 22:07:51.000000000 +0000
++++ tensorflow-1.9.0-rc2/tensorflow/workspace.bzl	2018-07-03 17:18:05.642399039 +0000
+@@ -685,10 +685,10 @@
+       name = "cython",
+-      sha256 = "6dcd30b5ceb887b2b965ee7ceb82ea3acb5f0642fe2206c7636b45acea4798e5",
++      sha256 = "f11ff41b4e47a42504de18fba47f60af5d72fb3be3073114f1651dad49653a2b",
+       urls = [
+-          "https://mirror.bazel.build/github.com/cython/cython/archive/3732784c45cfb040a5b0936951d196f83a12ea17.tar.gz",
+-          "https://github.com/cython/cython/archive/3732784c45cfb040a5b0936951d196f83a12ea17.tar.gz",
++          "https://mirror.bazel.build/github.com/cython/cython/archive/7332cf1b83f1fa5af32749041abd39a6c1564e96.tar.gz",
++          "https://github.com/cython/cython/archive/7332cf1b83f1fa5af32749041abd39a6c1564e96.tar.gz",
+       ],
+-      strip_prefix = "cython-3732784c45cfb040a5b0936951d196f83a12ea17",
++      strip_prefix = "cython-7332cf1b83f1fa5af32749041abd39a6c1564e96",
+       build_file = clean_dep("//third_party:cython.BUILD"),
+       delete = ["BUILD.bazel"],
+   )
+--- tensorflow-1.9.0-rc2/tensorflow/python/lib/core/ndarray_tensor.cc~	2018-07-02 22:07:51.000000000 +0000
++++ tensorflow-1.9.0-rc2/tensorflow/python/lib/core/ndarray_tensor.cc	2018-07-03 17:56:26.060367011 +0000
+@@ -148,7 +148,7 @@
+     if (!item) {
+       return errors::Internal("Unable to get element from the feed - no item.");
+     }
+-    char* ptr;
++    const char* ptr;
+     Py_ssize_t len;
+ 
+     if (PyUnicode_Check(item.get())) {
