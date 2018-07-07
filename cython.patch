@@ -46,7 +46,7 @@
 -    'setuptools <= 39.1.0',
 -    'tensorboard >= 1.8.0, < 1.9.0',
 +    'setuptools' ,
-+    'tensorboard >= 1.8.0',
++    
      'termcolor >= 1.1.0',
  ]
  
