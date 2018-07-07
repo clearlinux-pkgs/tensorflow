@@ -180,9 +180,10 @@ bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx2/
 %install
 export SOURCE_DATE_EPOCH=1485959355
 
+mkdir -p %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell
 pip3 install --no-deps  --root %{buildroot} /tmp/avx2/tensorflow-1.9.0rc0-cp37-cp37m-linux_x86_64.whl
 for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx2 ; done
-mv %{buildroot}//usr/lib/python3.6/site-packages/tensorflow/libtensorflow_framework.so.avx2 %{buildroot}/usr/lib/python3.6/site-packages/tensorflow/haswell/libtensorflow_framework.so
+mv %{buildroot}//usr/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx2 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/libtensorflow_framework.so
 
 
 pip3 install --no-deps --force-reinstall  --root %{buildroot} /tmp/tensorflow-1.9.0rc0-cp37-cp37m-linux_x86_64.whl
