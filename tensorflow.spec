@@ -191,10 +191,10 @@ pip3 install --no-deps --force-reinstall  --root %{buildroot} /tmp/tensorflow-1.
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/python3.6/site-packages
+/usr/lib/python3.7/site-packages
 /usr/bin/tensorboard
 /usr/bin/saved_model_cli
-/usr/share/doc/*
+#/usr/share/doc/*
 /usr/bin/freeze_graph
 /usr/bin/toco
 /usr/bin/toco_from_protos
