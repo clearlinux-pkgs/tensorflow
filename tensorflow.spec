@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.9.0rc2
-Release  : 37
+Release  : 38
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.9.0-rc2.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.9.0-rc2.tar.gz
 
@@ -174,12 +174,12 @@ mkdir /tmp/avx2
 bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  -c opt --copt=-mavx2 --copt=-O3 --copt=-march=haswell --copt=-mfma --copt=-g1    //tensorflow/tools/pip_package:build_pip_package
 bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx2/
 
-bazel clean
-export TF_BUILD_MAVX=MAVX512
-./configure < %{SOURCE101}
-mkdir /tmp/avx512
-bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  -c opt --copt=-mavx2 --copt=-O3 --copt=-march=skylake-avx512 --copt=-mfma --copt=-g1  //tensorflow/tools/pip_package:build_pip_package
-bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx512/
+#bazel clean
+#export TF_BUILD_MAVX=MAVX512
+#./configure < %{SOURCE101}
+#mkdir /tmp/avx512
+#bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  -c opt --copt=-mavx2 --copt=-O3 --copt=-march=skylake-avx512 --copt=-mfma --copt=-g1  //tensorflow/tools/pip_package:build_pip_package
+#bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx512/
 
 
 
@@ -189,9 +189,9 @@ export SOURCE_DATE_EPOCH=1485959355
 
 mkdir -p %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1
 
-pip3 install --no-deps  --root %{buildroot} /tmp/avx512/tensorflow-1.9.0rc0-cp37-cp37m-linux_x86_64.whl
-for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx512 ; done
-mv %{buildroot}//usr/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx512 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1libtensorflow_framework.so
+#pip3 install --no-deps  --root %{buildroot} /tmp/avx512/tensorflow-1.9.0rc0-cp37-cp37m-linux_x86_64.whl
+#for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx512 ; done
+#mv %{buildroot}//usr/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx512 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
 
 pip3 install --no-deps  --root %{buildroot} /tmp/avx2/tensorflow-1.9.0rc0-cp37-cp37m-linux_x86_64.whl
 for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx2 ; done
