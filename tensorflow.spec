@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.9.0rc2
-Release  : 36
+Release  : 37
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.9.0-rc2.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.9.0-rc2.tar.gz
 
