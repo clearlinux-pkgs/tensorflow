@@ -204,7 +204,7 @@ pip3 install --no-deps --force-reinstall  --root %{buildroot} /tmp/tensorflow-1.
 %files
 %defattr(-,root,root,-)
 /usr/lib/python3.7/site-packages
-/usr/bin/tensorboard
+%exclude /usr/bin/tensorboard
 /usr/bin/saved_model_cli
 /usr/bin/tflite_convert
 
