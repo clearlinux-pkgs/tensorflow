@@ -37,16 +37,14 @@
                                                          TF_Status* status);
  
  // Causes the calling thread to block till all ops dispatched in async mode
---- tensorflow-1.9.0-rc2/tensorflow/tools/pip_package/setup.py~	2018-07-02 22:07:51.000000000 +0000
-+++ tensorflow-1.9.0-rc2/tensorflow/tools/pip_package/setup.py	2018-07-07 13:07:38.041796543 +0000
-@@ -54,8 +54,8 @@
+--- tensorflow-1.9.0/tensorflow/tools/pip_package/setup.py~	2018-07-09 20:38:25.000000000 +0000
++++ tensorflow-1.9.0/tensorflow/tools/pip_package/setup.py	2018-07-10 14:51:04.854101334 +0000
+@@ -54,8 +54,6 @@
      'numpy >= 1.13.3',
      'six >= 1.10.0',
-     'protobuf >= 3.6.0',
+     'protobuf >= 3.4.0',
 -    'setuptools <= 39.1.0',
--    'tensorboard >= 1.8.0, < 1.9.0',
-+    'setuptools' ,
-+    
+-    'tensorboard >= 1.9.0, < 1.10.0',
      'termcolor >= 1.1.0',
  ]
  
