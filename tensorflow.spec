@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.9.0
-Release  : 39
+Release  : 40
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.9.0.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.9.0.tar.gz
 
@@ -182,9 +182,6 @@ bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx2/
 #bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  -c opt --copt=-mavx2 --copt=-O3 --copt=-march=skylake-avx512 --copt=-mfma --copt=-g1  //tensorflow/tools/pip_package:build_pip_package
 #bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx512/
 
-
-
-
 %install
 export SOURCE_DATE_EPOCH=1485959355
 
@@ -198,9 +195,8 @@ pip3 install --no-deps  --root %{buildroot} /tmp/avx2/tensorflow-1.9.0-cp37-cp37
 for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx2 ; done
 mv %{buildroot}//usr/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx2 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/libtensorflow_framework.so
 
-
+install -m 0644 -D %{SOURCE103} %{buildroot}/usr/share/doc/tensorflow/MNIST_example.ipynb
 pip3 install --no-deps --force-reinstall  --root %{buildroot} /tmp/tensorflow-1.9.0-cp37-cp37m-linux_x86_64.whl
-							           
 
 %files
 %defattr(-,root,root,-)
@@ -208,8 +204,7 @@ pip3 install --no-deps --force-reinstall  --root %{buildroot} /tmp/tensorflow-1.
 %exclude /usr/bin/tensorboard
 /usr/bin/saved_model_cli
 /usr/bin/tflite_convert
-
-#/usr/share/doc/*
+/usr/share/doc/tensorflow/MNIST_example.ipynb
 /usr/bin/freeze_graph
 /usr/bin/toco
 /usr/bin/toco_from_protos
