@@ -30,7 +30,7 @@ Source32 : https://github.com/google/nsync/archive/0559ce013feac8db639ee1bf776ac
 Source33 : https://mirror.bazel.build/github.com/gflags/gflags/archive/f8a0efe03aa69b3336d8e228b37d4ccb17324b88.tar.gz
 Source34 : https://mirror.bazel.build/ftp.exim.org/pub/pcre/pcre-8.42.tar.gz
 Source35 : https://mirror.bazel.build/ufpr.dl.sourceforge.net/project/swig/swig/swig-3.0.8/swig-3.0.8.tar.gz
-Source36 : https://curl.haxx.se/download/curl-7.49.1.tar.gz
+Source36 : https://curl.haxx.se/download/curl-7.60.0.tar.gz
 Source37 : https://mirror.bazel.build/github.com/grpc/grpc/archive/d184fa229d75d336aedea0041bd59cb93e7e267f.tar.gz
 Source38 : https://mirror.bazel.build/github.com/antirez/linenoise/archive/c894b9e59f02203dbe4e2be657572cf88c4230c3.tar.gz
 Source39 : https://github.com/LMDB/lmdb/archive/LMDB_0.9.19.tar.gz
@@ -57,6 +57,7 @@ Source101: answers.txt
 Source103: MNIST_example.ipynb
 
 Patch1 : cython.patch
+Patch2 : curlcve.patch
 
 #Source104: 0001-enum34-is-only-required-for-Python-3.4.patch
 
@@ -94,6 +95,7 @@ TensorFlow
 %prep
 %setup -q  -n tensorflow-1.9.0
 %patch1 -p1
+%patch2 -p1
 
 
 %build
