@@ -4,7 +4,7 @@ Release  : 41
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.9.0.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.9.0.tar.gz
 
-Source10 : https://bitbucket.org/eigen/eigen/get/fd6845384b86.tar.gz
+Source10 : https://github.com/markdryan/eigen-git-mirror/archive/c6b265289d7360c0ed824da125a6afdb9476d55f.tar.gz
 Source11 : https://mirror.bazel.build/github.com/abseil/abseil-cpp/archive/9613678332c976568272c8f4a78631a29159271d.tar.gz
 Source12 : https://github.com/hfp/libxsmm/archive/1.8.1.tar.gz
 Source13 : https://mirror.bazel.build/github.com/google/or-tools/archive/253f7955c6a1fd805408fba2e42ac6d45b312d15.tar.gz
@@ -58,6 +58,7 @@ Source103: MNIST_example.ipynb
 
 Patch1 : cython.patch
 Patch2 : curlcve.patch
+Patch3 : update-eigen.patch
 
 #Source104: 0001-enum34-is-only-required-for-Python-3.4.patch
 
@@ -96,6 +97,7 @@ TensorFlow
 %setup -q  -n tensorflow-1.9.0
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 
 %build
@@ -177,21 +179,21 @@ mkdir /tmp/avx2
 bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  -c opt --copt=-mavx2 --copt=-O3 --copt=-march=haswell --copt=-mfma --copt=-g1    //tensorflow/tools/pip_package:build_pip_package
 bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx2/
 
-#bazel clean
-#export TF_BUILD_MAVX=MAVX512
-#./configure < %{SOURCE101}
-#mkdir /tmp/avx512
-#bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  -c opt --copt=-mavx2 --copt=-O3 --copt=-march=skylake-avx512 --copt=-mfma --copt=-g1  //tensorflow/tools/pip_package:build_pip_package
-#bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx512/
+bazel clean
+export TF_BUILD_MAVX=MAVX512
+./configure < %{SOURCE101}
+mkdir /tmp/avx512
+bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  -c opt --copt=-mavx2 --copt=-O3 --copt=-march=skylake-avx512 --copt=-mfma --copt=-g1  //tensorflow/tools/pip_package:build_pip_package
+bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx512/
 
 %install
 export SOURCE_DATE_EPOCH=1485959355
 
 mkdir -p %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1
 
-#pip3 install --no-deps  --root %{buildroot} /tmp/avx512/tensorflow-1.9.0-cp37-cp37m-linux_x86_64.whl
-#for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx512 ; done
-#mv %{buildroot}//usr/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx512 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
+pip3 install --no-deps  --root %{buildroot} /tmp/avx512/tensorflow-1.9.0-cp37-cp37m-linux_x86_64.whl
+for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx512 ; done
+mv %{buildroot}//usr/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx512 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
 
 pip3 install --no-deps  --root %{buildroot} /tmp/avx2/tensorflow-1.9.0-cp37-cp37m-linux_x86_64.whl
 for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx2 ; done
