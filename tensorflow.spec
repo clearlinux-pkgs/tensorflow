@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.9.0
-Release  : 42
+Release  : 43
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.9.0.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.9.0.tar.gz
 
@@ -198,6 +198,10 @@ mv %{buildroot}//usr/lib/python3.7/site-packages/tensorflow/libtensorflow_framew
 pip3 install --no-deps  --root %{buildroot} /tmp/avx2/tensorflow-1.9.0-cp37-cp37m-linux_x86_64.whl
 for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx2 ; done
 mv %{buildroot}//usr/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx2 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/libtensorflow_framework.so
+
+
+# fix up
+mv %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so.avx2 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
 
 install -m 0644 -D %{SOURCE103} %{buildroot}/usr/share/doc/tensorflow/MNIST_example.ipynb
 pip3 install --no-deps --force-reinstall  --root %{buildroot} /tmp/tensorflow-1.9.0-cp37-cp37m-linux_x86_64.whl
