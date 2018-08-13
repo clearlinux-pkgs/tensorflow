@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.10.0
-Release  : 43
+Release  : 44
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.10.0.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.10.0.tar.gz
 
@@ -57,6 +57,7 @@ Source101: answers.txt
 Source103: MNIST_example.ipynb
 
 Patch1 : cython.patch
+Patch2 : setuptools.patch
 Patch3 : update-eigen.patch
 
 #Source104: 0001-enum34-is-only-required-for-Python-3.4.patch
@@ -95,6 +96,7 @@ TensorFlow
 %prep
 %setup -q  -n tensorflow-1.10.0
 %patch1 -p1
+%patch2 -p1
 %patch3 -p1
 
 
