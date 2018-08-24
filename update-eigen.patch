@@ -6,13 +6,13 @@
        urls = [
 -          "https://mirror.bazel.build/bitbucket.org/eigen/eigen/get/fd6845384b86.tar.gz",
 -          "https://bitbucket.org/eigen/eigen/get/fd6845384b86.tar.gz",
-+          "https://github.com/markdryan/eigen-git-mirror/archive/c6b265289d7360c0ed824da125a6afdb9476d55f.tar.gz",
-+          "https://github.com/markdryan/eigen-git-mirror/archive/c6b265289d7360c0ed824da125a6afdb9476d55f.tar.gz",
++          "https://github.com/fenrus75/eigen-git-mirror/archive/ef7db4a80166b932e641f92df09f6341a71f8da7.tar.gz",
++          "https://github.com/markdryan/eigen-git-mirror/archive/ef7db4a80166b932e641f92df09f6341a71f8da7.tar.gz",
        ],
 -      sha256 = "d956415d784fa4e42b6a2a45c32556d6aec9d0a3d8ef48baee2522ab762556a9",
 -      strip_prefix = "eigen-eigen-fd6845384b86",
-+      sha256 = "db6b7b334f30266eb24a6975628de57c55d8c0e21c89022c2d30ccb26552ba42",
-+      strip_prefix = "eigen-git-mirror-c6b265289d7360c0ed824da125a6afdb9476d55f",
++      sha256 = "dac3ae2ae9b82bfac0ae0b42248a3c9546f256034fc1212868da8b54a0e45f13",
++      strip_prefix = "eigen-git-mirror-ef7db4a80166b932e641f92df09f6341a71f8da7",
        build_file = clean_dep("//third_party:eigen.BUILD"),
    )
  
