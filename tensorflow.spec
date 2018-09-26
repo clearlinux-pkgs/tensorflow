@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.10.1
-Release  : 45
+Release  : 46
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.10.1.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.10.1.tar.gz
 
@@ -205,6 +205,9 @@ pip3 install --no-deps  --root %{buildroot} /tmp/avx2/tensorflow-1.10.1-cp37-cp3
 for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx2 ; done
 mv %{buildroot}//usr/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx2 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/libtensorflow_framework.so
 
+# Add python examples
+mkdir -p %{buildroot}/usr/share/tensorflow/eager/python/
+cp -r tensorflow/contrib/eager/python/examples/ %{buildroot}/usr/share/tensorflow/eager/python/
 
 # fix up
 mv %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so.avx2 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
@@ -222,3 +225,4 @@ pip3 install --no-deps --force-reinstall  --root %{buildroot} /tmp/tensorflow-1.
 /usr/bin/freeze_graph
 /usr/bin/toco
 /usr/bin/toco_from_protos
+/usr/share/tensorflow
