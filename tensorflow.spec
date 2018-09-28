@@ -105,6 +105,7 @@ TensorFlow
 %prep
 %setup -q  -n tensorflow-1.11.0
 
+%patch2 -p1
 
 %build
 export LANG=C
