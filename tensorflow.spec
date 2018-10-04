@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.11.0
-Release  : 49
+Release  : 50
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.11.0.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.11.0.tar.gz
 
@@ -186,21 +186,21 @@ mkdir /tmp/avx2
 bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  -c dbg --copt=-mavx2 --copt=-O2 --copt=-march=haswell --copt=-mfma --copt=-g3 --strip=never --config=mkl_open_source_only   //tensorflow/tools/pip_package:build_pip_package
 bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx2/
 
-bazel clean
-export TF_BUILD_MAVX=MAVX512
-./configure < %{SOURCE101}
-mkdir /tmp/avx512
-bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  -c dbg --copt=-mavx2 --copt=-O1 --copt=-fno-inline --copt=-march=skylake-avx512 --copt=-mfma --copt=-g3 --config=mkl_open_source_only  //tensorflow/tools/pip_package:build_pip_package
-bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx512/
+#bazel clean
+#export TF_BUILD_MAVX=MAVX512
+#./configure < %{SOURCE101}
+#mkdir /tmp/avx512
+#bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  -c dbg --copt=-mavx2 --copt=-O1 --copt=-fno-inline --copt=-march=skylake-avx512 --copt=-mfma --copt=-g3 --config=mkl_open_source_only  //tensorflow/tools/pip_package:build_pip_package
+#bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx512/
 
 %install
 export SOURCE_DATE_EPOCH=1485959355
 
 mkdir -p %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1
 
-pip3 install --no-deps  --root %{buildroot} /tmp/avx512/tensorflow-1.11.0-cp37-cp37m-linux_x86_64.whl
-for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx512 ; done
-mv %{buildroot}//usr/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx512 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
+#pip3 install --no-deps  --root %{buildroot} /tmp/avx512/tensorflow-1.11.0-cp37-cp37m-linux_x86_64.whl
+#for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx512 ; done
+#mv %{buildroot}//usr/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx512 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
 
 pip3 install --no-deps  --root %{buildroot} /tmp/avx2/tensorflow-1.11.0-cp37-cp37m-linux_x86_64.whl
 for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx2 ; done
@@ -211,7 +211,7 @@ mkdir -p %{buildroot}/usr/share/tensorflow/eager/python/
 cp -r tensorflow/contrib/eager/python/examples/ %{buildroot}/usr/share/tensorflow/eager/python/
 
 # fix up
-mv %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so.avx2 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
+#mv %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so.avx2 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
 
 install -m 0644 -D %{SOURCE103} %{buildroot}/usr/share/doc/tensorflow/MNIST_example.ipynb
 pip3 install --no-deps --force-reinstall  --root %{buildroot} /tmp/tensorflow-1.11.0-cp37-cp37m-linux_x86_64.whl
