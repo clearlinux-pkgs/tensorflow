@@ -97,6 +97,9 @@ Requires: absl-py
 Requires: astor
 Requires: grpcio
 Requires: gast
+Requires : Keras
+Requires : Keras_Applications
+Requires : Keras_Preprocessing
 
 
 %description
