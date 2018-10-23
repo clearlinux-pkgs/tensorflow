@@ -179,21 +179,21 @@ InstallCache %{SOURCE57}
 
 ./configure < %{SOURCE101}
 
-bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  -c dbg --copt=-g3 --copt=-Wno-sign-compare --copt=-O2 --strip=never --config=mkl_open_source_only //tensorflow/tools/pip_package:build_pip_package
+bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  --config=opt --copt=-Wno-sign-compare --copt=-O3 --strip=never --config=mkl_open_source_only //tensorflow/tools/pip_package:build_pip_package
 bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp
 
 bazel clean
 export TF_BUILD_MAVX=MAVX2
 ./configure < %{SOURCE101}
 mkdir /tmp/avx2
-bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  -c dbg --copt=-mavx2 --copt=-O2 --copt=-march=haswell --copt=-mfma --copt=-g3 --strip=never --config=mkl_open_source_only   //tensorflow/tools/pip_package:build_pip_package
+bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  --config=opt --copt=-mavx2 --copt=-O3 --copt=-fno-inline --copt=-march=haswell --copt=-mfma --config=mkl_open_source_only  //tensorflow/tools/pip_package:build_pip_package
 bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx2/
 
 bazel clean
 export TF_BUILD_MAVX=MAVX512
 ./configure < %{SOURCE101}
 mkdir /tmp/avx512
-bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  -c dbg --copt=-mavx2 --copt=-O1 --copt=-fno-inline --copt=-march=skylake-avx512 --copt=-mfma --copt=-g3 --config=mkl_open_source_only  //tensorflow/tools/pip_package:build_pip_package
+bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  --config=opt --copt=-mavx2 --copt=-O3 --copt=-fno-inline --copt=-march=skylake-avx512 --copt=-mfma --config=mkl_open_source_only  //tensorflow/tools/pip_package:build_pip_package
 bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx512/
 
 %install
