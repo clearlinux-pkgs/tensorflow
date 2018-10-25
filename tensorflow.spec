@@ -4,7 +4,7 @@ Release  : 52
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.11.0.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.11.0.tar.gz
 
-Source10 : https://bitbucket.org/eigen/eigen/get/fd6845384b86.tar.gz
+Source10 : https://github.com/markdryan/eigen-git-mirror/archive/avx512-fixes-on-f21be5f.tar.gz
 Source11 : https://github.com/abseil/abseil-cpp/archive/f0f15c2778b0e4959244dd25e63f445a455870f5.tar.gz
 Source12 : https://github.com/hfp/libxsmm/archive/1.9.tar.gz
 Source13 : https://mirror.bazel.build/github.com/google/or-tools/archive/253f7955c6a1fd805408fba2e42ac6d45b312d15.tar.gz
@@ -57,6 +57,7 @@ Source101: answers.txt
 Source103: MNIST_example.ipynb
 
 Patch2 : setuptools.patch
+Patch3 : 0002-temporarily-maintain-eigen-patches-while-waiting-on-.patch
 
 
 
@@ -109,6 +110,7 @@ TensorFlow
 %setup -q  -n tensorflow-1.11.0
 
 %patch2 -p1
+%patch3 -p1
 
 %build
 export LANG=C
