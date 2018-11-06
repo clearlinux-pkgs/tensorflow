@@ -88,6 +88,8 @@ BuildRequires : Keras
 BuildRequires : Keras_Applications
 BuildRequires : Keras_Preprocessing
 BuildRequires : mkl-dnn-dev
+BuildRequires : c-ares-dev
+
 
 
 
