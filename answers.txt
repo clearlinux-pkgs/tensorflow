@@ -7,11 +7,5 @@ n
 n
 n
 n
-n
-n
-n
-n
-n
-n
 -O3
 n

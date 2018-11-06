@@ -1,11 +1,12 @@
 Name     : tensorflow
-Version  : 1.11.0
+Version  : 1.12.0
 Release  : 56
-URL      : https://github.com/tensorflow/tensorflow/archive/v1.11.0.tar.gz
-Source0  : https://github.com/tensorflow/tensorflow/archive/v1.11.0.tar.gz
+URL      : https://github.com/tensorflow/tensorflow/archive/v1.12.0.tar.gz
+Source0  : https://github.com/tensorflow/tensorflow/archive/v1.12.0.tar.gz
 
-Source10 : https://github.com/markdryan/eigen-git-mirror/archive/avx512-fixes-on-f21be5f.tar.gz
-Source11 : https://github.com/abseil/abseil-cpp/archive/f0f15c2778b0e4959244dd25e63f445a455870f5.tar.gz
+Source9 : https://github.com/markdryan/eigen-git-mirror/archive/avx512-fixes-on-f21be5f.tar.gz
+Source10 :  https://bitbucket.org/eigen/eigen/get/fd6845384b86.tar.gz
+Source11 : https://github.com/abseil/abseil-cpp/archive/48cd2c3f351ff188bc85684b84a91b6e6d17d896.tar.gz
 Source12 : https://github.com/hfp/libxsmm/archive/1.9.tar.gz
 Source13 : https://mirror.bazel.build/github.com/google/or-tools/archive/253f7955c6a1fd805408fba2e42ac6d45b312d15.tar.gz
 Source14 : https://github.com/google/re2/archive/2018-07-01.tar.gz
@@ -43,15 +44,16 @@ Source45 : https://mirror.bazel.build/github.com/jemalloc/jemalloc/archive/4.4.0
 Source46 : https://mirror.bazel.build/github.com/google/pprof/archive/c0fb62ec88c411cc91194465e54db2632845b650.tar.gz
 Source47 : https://github.com/google/double-conversion/archive/3992066a95b823efc8ccc1baf82a1cfc73f6e9b8.zip
 Source48 : https://mirror.bazel.build/github.com/google/googletest/archive/9816b96a6ddc0430671693df90192bbee57108b6.zip
-Source49 : https://github.com/edenhill/librdkafka/archive/v0.11.4.tar.gz
+Source49 :  https://github.com/edenhill/librdkafka/archive/v0.11.5.tar.gz
 Source50 : https://github.com/aws/aws-sdk-cpp/archive/1.3.15.tar.gz
 Source51 : https://mirror.bazel.build/github.com/cython/cython/archive/0.28.4.tar.gz
 Source52 : https://github.com/NVlabs/cub/archive/1.8.0.zip
 Source53 : https://github.com/googleapis/googleapis/archive/f81082ea1e2f85c43649bee26e0d9871d4b41cdb.zip
 Source54 : https://github.com/intel/ARM_NEON_2_x86_SSE/archive/0f77d9d182265259b135dad949230ecbf1a2633d.tar.gz
-Source55 : https://github.com/google/flatbuffers/archive/v1.9.0.tar.gz
+Source55 : https://github.com/google/flatbuffers/archive/1f5eae5d6a135ff6811724f6c57f911d1f46bb15.tar.gz
 Source56 : https://docs.python.org/2.7/_sources/license.txt
 Source57 : http://ftp.exim.org/pub/pcre/pcre-8.39.tar.gz
+Source58 : https://github.com/unicode-org/icu/archive/release-62-1.tar.gz
 
 Source101: answers.txt
 Source103: MNIST_example.ipynb
@@ -107,10 +109,10 @@ Requires : Keras_Preprocessing
 TensorFlow
 
 %prep
-%setup -q  -n tensorflow-1.11.0
+%setup -q  -n tensorflow-1.12.0
 
-%patch2 -p1
-%patch3 -p1
+#%patch2 -p1
+#%patch3 -p1
 
 %build
 export LANG=C
@@ -177,6 +179,7 @@ InstallCache %{SOURCE54}
 InstallCache %{SOURCE55}
 InstallCache %{SOURCE56}
 InstallCache %{SOURCE57}
+InstallCache %{SOURCE58}
 
 
 ./configure < %{SOURCE101}
@@ -203,11 +206,11 @@ export SOURCE_DATE_EPOCH=1485959355
 
 mkdir -p %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1
 
-pip3 install --no-deps  --root %{buildroot} /tmp/avx512/tensorflow-1.11.0-cp37-cp37m-linux_x86_64.whl
+pip3 install --no-deps  --root %{buildroot} /tmp/avx512/tensorflow-1.12.0-cp37-cp37m-linux_x86_64.whl
 for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx512 ; done
 mv %{buildroot}//usr/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx512 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
 
-pip3 install --no-deps  --root %{buildroot} /tmp/avx2/tensorflow-1.11.0-cp37-cp37m-linux_x86_64.whl
+pip3 install --no-deps  --root %{buildroot} /tmp/avx2/tensorflow-1.12.0-cp37-cp37m-linux_x86_64.whl
 for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx2 ; done
 mv %{buildroot}//usr/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx2 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/libtensorflow_framework.so
 
@@ -219,7 +222,7 @@ cp -r tensorflow/contrib/eager/python/examples/ %{buildroot}/usr/share/tensorflo
 mv %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so.avx2 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
 
 install -m 0644 -D %{SOURCE103} %{buildroot}/usr/share/doc/tensorflow/MNIST_example.ipynb
-pip3 install --no-deps --force-reinstall  --root %{buildroot} /tmp/tensorflow-1.11.0-cp37-cp37m-linux_x86_64.whl
+pip3 install --no-deps --force-reinstall  --root %{buildroot} /tmp/tensorflow-1.12.0-cp37-cp37m-linux_x86_64.whl
 
 %files
 %defattr(-,root,root,-)
