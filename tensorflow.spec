@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.12.0
-Release  : 59
+Release  : 60
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.12.0.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.12.0.tar.gz
 
