@@ -54,6 +54,7 @@ Source55 : https://github.com/google/flatbuffers/archive/1f5eae5d6a135ff6811724f
 Source56 : https://docs.python.org/2.7/_sources/license.txt
 Source57 : http://ftp.exim.org/pub/pcre/pcre-8.39.tar.gz
 Source58 : https://github.com/unicode-org/icu/archive/release-62-1.tar.gz
+Source59 : https://github.com/llvm-mirror/llvm/archive/d3429e96fe1e45b1dc0106463832523f37faf271.tar.gz
 
 Source101: answers.txt
 Source103: MNIST_example.ipynb
@@ -182,6 +183,7 @@ InstallCache %{SOURCE55}
 InstallCache %{SOURCE56}
 InstallCache %{SOURCE57}
 InstallCache %{SOURCE58}
+InstallCache %{SOURCE59}
 
 
 ./configure < %{SOURCE101}
