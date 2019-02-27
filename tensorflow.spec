@@ -244,11 +244,11 @@ pip3 install --no-deps --force-reinstall --user  --root %{buildroot} /tmp/tensor
 %files
 %defattr(-,root,root,-)
 /usr/lib/python3.7/site-packages
-%exclude /usr/bin/tensorboard
-/usr/bin/saved_model_cli
-/usr/bin/tflite_convert
+# /usr/bin/tensorboard
+#/usr/bin/saved_model_cli
+#/usr/bin/tflite_convert
 /usr/share/doc/tensorflow/MNIST_example.ipynb
-/usr/bin/freeze_graph
-/usr/bin/toco
-/usr/bin/toco_from_protos
+#/usr/bin/freeze_graph
+#/usr/bin/toco
+#/usr/bin/toco_from_protos
 /usr/share/tensorflow
