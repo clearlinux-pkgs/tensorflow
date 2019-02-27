@@ -225,18 +225,18 @@ mkdir -p %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_
 
 pip3 install --no-deps --user  --root %{buildroot} /tmp/avx512/tensorflow-1.13.1-cp37-cp37m-linux_x86_64.whl
 for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx512 ; done
-mv %{buildroot}//usr/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx512 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
+#mv %{buildroot}//usr/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx512 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
 
 pip3 install --no-deps --user  --root %{buildroot} /tmp/avx2/tensorflow-1.13.1-cp37-cp37m-linux_x86_64.whl
 for i in `find %{buildroot} -name "*.so" `; do mv $i $i.avx2 ; done
-mv %{buildroot}//usr/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx2 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/libtensorflow_framework.so
+#mv %{buildroot}//usr/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx2 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/libtensorflow_framework.so
 
 # Add python examples
 mkdir -p %{buildroot}/usr/share/tensorflow/eager/python/
 cp -r tensorflow/contrib/eager/python/examples/ %{buildroot}/usr/share/tensorflow/eager/python/
 
 # fix up
-mv %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so.avx2 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
+#mv %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so.avx2 %{buildroot}/usr/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
 
 install -m 0644 -D %{SOURCE103} %{buildroot}/usr/share/doc/tensorflow/MNIST_example.ipynb
 pip3 install --no-deps --force-reinstall --user  --root %{buildroot} /tmp/tensorflow-1.13.1-cp37-cp37m-linux_x86_64.whl
