@@ -246,7 +246,7 @@ mv /builddir/.local/lib/ %{buildroot}/usr/
 %defattr(-,root,root,-)
 /usr/bin/freeze_graph
 /usr/bin/saved_model_cli
-/usr/bin/tensorboard
+%exclude /usr/bin/tensorboard
 /usr/bin/tflite_convert
 /usr/bin/toco
 /usr/bin/toco_from_protos
