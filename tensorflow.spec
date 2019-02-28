@@ -250,6 +250,6 @@ mv /builddir/.local/lib/ %{buildroot}/usr/
 /usr/bin/tflite_convert
 /usr/bin/toco
 /usr/bin/toco_from_protos
-/usr/lib/python3.7/site-packages
+/usr/lib/python3.7/site-packages/*
 /usr/share/doc/tensorflow/MNIST_example.ipynb
 /usr/share/tensorflow
