@@ -221,11 +221,11 @@ export SOURCE_DATE_EPOCH=1485959355
 pip3 install --no-deps --user /tmp/avx512/tensorflow-1.13.1-cp37-cp37m-linux_x86_64.whl
 for i in `find /builddir/.local/ -name "*.so" `; do mv $i $i.avx512 ; done
 mkdir -p /builddir/.local/lib/python3.7/site-packages/tensorflow/haswell/avx512_1
-mv /builddir/.local/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx512 /builddir/.local/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so.avx512
+mv /builddir/.local/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx512 /builddir/.local/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so.avx512 || :
 
 pip3 install --no-deps --user --force-reinstall /tmp/avx2/tensorflow-1.13.1-cp37-cp37m-linux_x86_64.whl
 for i in `find /builddir/.local/ -name "*.so" `; do mv $i $i.avx2 ; done
-mv /builddir/.local/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx2 /builddir/.local/lib/python3.7/site-packages/tensorflow/haswell/libtensorflow_framework.so.avx2
+mv /builddir/.local/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx2 /builddir/.local/lib/python3.7/site-packages/tensorflow/haswell/libtensorflow_framework.so.avx2 || :
 
 # Add python examples
 mkdir -p %{buildroot}/usr/share/tensorflow/eager/python/
