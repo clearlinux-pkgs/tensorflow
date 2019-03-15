@@ -70,9 +70,6 @@ Patch2 : setuptools.patch
 
 
 
-%define __strip /bin/true
-%define debug_package %{nil}
-
 
 #Source104: 0001-enum34-is-only-required-for-Python-3.4.patch
 
