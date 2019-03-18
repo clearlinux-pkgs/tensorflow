@@ -4,8 +4,8 @@ Release  : 73
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.13.1.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.13.1.tar.gz
 
-Source9 : https://github.com/markdryan/eigen-git-mirror/archive/avx512-fixes-on-f21be5f.tar.gz
-Source10 : https://bitbucket.org/eigen/eigen/get/9f48e814419e.tar.gz
+Source9 : https://github.com/markdryan/eigen-git-mirror/archive/tf1.13.tar.gz
+Source10 : https://github.com/markdryan/eigen-git-mirror/archive/tf1.13.tar.gz
 Source11 : https://github.com/abseil/abseil-cpp/archive/389ec3f906f018661a5308458d623d01f96d7b23.tar.gz
 Source12 : https://github.com/hfp/libxsmm/archive/1.9.tar.gz
 Source13 : https://mirror.bazel.build/github.com/google/or-tools/archive/253f7955c6a1fd805408fba2e42ac6d45b312d15.tar.gz
@@ -67,6 +67,7 @@ Source101: answers.txt
 Source103: MNIST_example.ipynb
 
 Patch2 : setuptools.patch
+Patch3 : 0001-Patch-Eigen-for-TF-1.13.patch
 
 
 
@@ -119,6 +120,7 @@ TensorFlow
 %setup -q  -n tensorflow-1.13.1
 
 #%patch2 -p1
+%patch3 -p1
 
 %build
 export LANG=C
