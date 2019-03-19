@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.13.1
-Release  : 73
+Release  : 74
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.13.1.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.13.1.tar.gz
 
