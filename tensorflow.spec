@@ -117,6 +117,8 @@ Requires : Keras
 Requires : Keras_Applications
 Requires : Keras_Preprocessing
 Requires : termcolor
+Requires : wrapt
+Requires : google-pasta
 
 
 %description
