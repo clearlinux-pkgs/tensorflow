@@ -1,0 +1,58 @@
+From 032c79d3d6c5e3f31582e2dda64a02fda252cf97 Mon Sep 17 00:00:00 2001
+From: "Choong, Yin Thong" <yin.thong.choong@intel.com>
+Date: Fri, 12 Jul 2019 10:13:10 +0000
+Subject: [PATCH] fixed curl dependency issue
+
+Signed-off-by: Choong, Yin Thong <yin.thong.choong@intel.com>
+---
+ third_party/curl.BUILD | 19 +++++++++++++++----
+ 1 file changed, 15 insertions(+), 4 deletions(-)
+
+diff --git a/third_party/curl.BUILD b/third_party/curl.BUILD
+index a3aa3ce4..f65841f1 100644
+--- a/third_party/curl.BUILD
++++ b/third_party/curl.BUILD
+@@ -154,8 +154,7 @@ cc_library(
+         "lib/parsedate.c",
+         "lib/parsedate.h",
+         "lib/pingpong.h",
+-        "lib/pipeline.c",
+-        "lib/pipeline.h",
++        "lib/pingpong.c",
+         "lib/pop3.h",
+         "lib/progress.c",
+         "lib/progress.h",
+@@ -217,9 +216,7 @@ cc_library(
+         "lib/vauth/vauth.c",
+         "lib/vauth/vauth.h",
+         "lib/version.c",
+-        "lib/vtls/axtls.h",
+         "lib/vtls/cyassl.h",
+-        "lib/vtls/darwinssl.h",
+         "lib/vtls/gskit.h",
+         "lib/vtls/gtls.h",
+         "lib/vtls/mbedtls.h",
+@@ -235,6 +232,20 @@ cc_library(
+         "lib/wildcard.c",
+         "lib/wildcard.h",
+         "lib/x509asn1.h",
++        "lib/psl.h",
++        "lib/psl.c",
++        "lib/vtls/sectransp.h",
++        "lib/vtls/sectransp.c",
++        "lib/vtls/mesalink.h",
++        "lib/vtls/mesalink.c",
++        "lib/curl_get_line.h",
++        "lib/curl_get_line.c",
++        "lib/urlapi-int.h",
++        "lib/urlapi.c",
++        "lib/altsvc.h",
++        "lib/altsvc.c",
++        "lib/doh.h",
++        "lib/doh.c",
+     ] + select({
+         "@org_tensorflow//tensorflow:macos": [
+             "lib/vtls/darwinssl.c",
+-- 
+2.21.0
+

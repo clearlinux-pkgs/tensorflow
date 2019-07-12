@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.14.0
-Release  : 76
+Release  : 77
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.14.0.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.14.0.tar.gz
 
@@ -31,7 +31,7 @@ Source32 : https://github.com/google/nsync/archive/1.20.2.tar.gz
 Source33 : https://mirror.bazel.build/github.com/gflags/gflags/archive/f8a0efe03aa69b3336d8e228b37d4ccb17324b88.tar.gz
 Source34 : https://mirror.bazel.build/ftp.exim.org/pub/pcre/pcre-8.42.tar.gz
 Source35 : https://mirror.bazel.build/ufpr.dl.sourceforge.net/project/swig/swig/swig-3.0.8/swig-3.0.8.tar.gz
-Source36 : https://curl.haxx.se/download/curl-7.60.0.tar.gz
+Source36 : https://curl.haxx.se/download/curl-7.65.1.tar.gz
 Source37 : https://github.com/grpc/grpc/archive/4566c2a29ebec0835643b972eb99f4306c4234a3.tar.gz
 Source38 : https://mirror.bazel.build/github.com/antirez/linenoise/archive/c894b9e59f02203dbe4e2be657572cf88c4230c3.tar.gz
 Source39 : https://github.com/LMDB/lmdb/archive/LMDB_0.9.22.tar.gz
@@ -51,7 +51,6 @@ Source52 : https://github.com/NVlabs/cub/archive/1.8.0.zip
 Source53 : https://github.com/googleapis/googleapis/archive/f81082ea1e2f85c43649bee26e0d9871d4b41cdb.zip
 Source54 : https://github.com/intel/ARM_NEON_2_x86_SSE/archive/1200fe90bb174a6224a525ee60148671a786a71f.tar.gz
 Source55 : https://github.com/google/flatbuffers/archive/v1.11.0.tar.gz
-Source56 : https://docs.python.org/2.7/_sources/license.txt
 Source57 : http://ftp.exim.org/pub/pcre/pcre-8.39.tar.gz
 Source58 : https://github.com/unicode-org/icu/archive/release-62-1.tar.gz
 Source59 : https://github.com/llvm-mirror/llvm/archive/558b52b517b8c989dc2d7fffb5c580fa45aece34.tar.gz
@@ -74,8 +73,8 @@ Source103: MNIST_example.ipynb
 
 Patch2 : setuptools.patch
 Patch3 : 0001-Patch-Eigen-for-TF-1.13.patch
-
-
+Patch4 : 0001-fixed-curl-dependency-issue.patch
+Patch5 : 0001-Updated-curl.patch
 
 
 #Source104: 0001-enum34-is-only-required-for-Python-3.4.patch
@@ -129,6 +128,8 @@ TensorFlow
 
 #%patch2 -p1
 #%patch3 -p1
+%patch4 -p1
+%patch5 -p1
 
 %build
 export LANG=C
@@ -193,7 +194,6 @@ InstallCache %{SOURCE52}
 InstallCache %{SOURCE53}
 InstallCache %{SOURCE54}
 InstallCache %{SOURCE55}
-InstallCache %{SOURCE56}
 InstallCache %{SOURCE57}
 InstallCache %{SOURCE58}
 InstallCache %{SOURCE59}
