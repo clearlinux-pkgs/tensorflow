@@ -235,13 +235,13 @@ bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx512/
 export SOURCE_DATE_EPOCH=1485959355
 
 pip3 install --no-deps --user /tmp/avx512/tensorflow-1.14.0-cp37-cp37m-linux_x86_64.whl
-for i in `find /builddir/.local/ -name "*.so" `; do mv $i $i.avx512 ; done
+for i in `find /builddir/.local/ -name "*.so.1" `; do mv $i $i.avx512 ; done
 mkdir -p /builddir/.local/lib/python3.7/site-packages/tensorflow/haswell/avx512_1
-#mv /builddir/.local/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx512 /builddir/.local/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so.avx512 || :
+mv /builddir/.local/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx512 /builddir/.local/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so.avx512 || :
 
 pip3 install --no-deps --user --force-reinstall /tmp/avx2/tensorflow-1.14.0-cp37-cp37m-linux_x86_64.whl
-for i in `find /builddir/.local/ -name "*.so" `; do mv $i $i.avx2 ; done
-#mv /builddir/.local/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx2 /builddir/.local/lib/python3.7/site-packages/tensorflow/haswell/libtensorflow_framework.so.avx2 || :
+for i in `find /builddir/.local/ -name "*.so.1" `; do mv $i $i.avx2 ; done
+mv /builddir/.local/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.avx2 /builddir/.local/lib/python3.7/site-packages/tensorflow/haswell/libtensorflow_framework.so.avx2 || :
 
 # Add python examples
 mkdir -p %{buildroot}/usr/share/tensorflow/eager/python/
@@ -249,8 +249,8 @@ cp -r tensorflow/contrib/eager/python/examples/ %{buildroot}/usr/share/tensorflo
 
 install -m 0644 -D %{SOURCE103} %{buildroot}/usr/share/doc/tensorflow/MNIST_example.ipynb
 pip3 install --no-deps --force-reinstall --user /tmp/tensorflow-1.14.0-cp37-cp37m-linux_x86_64.whl
-#mv /builddir/.local/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so.avx512 /builddir/.local/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
-#mv /builddir/.local/lib/python3.7/site-packages/tensorflow/haswell/libtensorflow_framework.so.avx2 /builddir/.local/lib/python3.7/site-packages/tensorflow/haswell/libtensorflow_framework.so
+mv /builddir/.local/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so.avx512 /builddir/.local/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so
+mv /builddir/.local/lib/python3.7/site-packages/tensorflow/haswell/libtensorflow_framework.so.avx2 /builddir/.local/lib/python3.7/site-packages/tensorflow/haswell/libtensorflow_framework.so
 rm /builddir/.local/bin/tf_upgrade_v2
 mv /builddir/.local/bin %{buildroot}/usr/
 mv /builddir/.local/lib/ %{buildroot}/usr/
