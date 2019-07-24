@@ -234,7 +234,7 @@ bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx512/
 %install
 export SOURCE_DATE_EPOCH=1485959355
 
-pip3 install --no-deps --user /tmp/avx512/tensorflow-1.14.0-cp37-cp37m-linux_x86_64.whl
+pip3 install --no-deps --user --force-reinstall /tmp/avx512/tensorflow-1.14.0-cp37-cp37m-linux_x86_64.whl
 for i in `find /builddir/.local/ -name "*.so.1" `; do mv $i $i.avx512 ; done
 mkdir -p /builddir/.local/lib/python3.7/site-packages/tensorflow/haswell/avx512_1
 mv /builddir/.local/lib/python3.7/site-packages/tensorflow/libtensorflow_framework.so.1.avx512 /builddir/.local/lib/python3.7/site-packages/tensorflow/haswell/avx512_1/libtensorflow_framework.so.1.avx512 || :
