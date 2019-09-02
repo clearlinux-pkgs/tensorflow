@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.14.0
-Release  : 81
+Release  : 82
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.14.0.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.14.0.tar.gz
 
@@ -75,7 +75,7 @@ Patch2 : setuptools.patch
 Patch3 : 0001-Patch-Eigen-for-TF-1.13.patch
 Patch4 : 0001-fixed-curl-dependency-issue.patch
 Patch5 : 0001-Updated-curl.patch
-
+Patch6 : Add-grpc-fix-for-gettid.patch
 
 #Source104: 0001-enum34-is-only-required-for-Python-3.4.patch
 
@@ -130,6 +130,7 @@ TensorFlow
 #%patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
 
 %build
 export LANG=C
