@@ -19,7 +19,7 @@ Source20 : https://mirror.bazel.build/www.nasm.us/pub/nasm/releasebuilds/2.13.03
 Source21 : https://github.com/libjpeg-turbo/libjpeg-turbo/archive/2.0.0.tar.gz
 Source22 : https://github.com/glennrp/libpng/archive/v1.6.37.tar.gz
 Source23 : https://www.sqlite.org/2019/sqlite-amalgamation-3280000.zip
-Source24 : https://mirror.bazel.build/ufpr.dl.sourceforge.net/project/giflib/giflib-5.1.4.tar.gz
+Source24 : http://pilotfiber.dl.sourceforge.net/project/giflib/giflib-5.2.1.tar.gz
 Source25 : https://mirror.bazel.build/pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz
 Source26 : https://files.pythonhosted.org/packages/99/80/f9482277c919d28bebd85813c0a70117214149a96b08981b72b63240b84c/astor-0.7.1.tar.gz
 Source27 : https://mirror.bazel.build/pypi.python.org/packages/5c/78/ff794fcae2ce8aa6323e789d1f8b3b7765f601e7702726f430e814822b96/gast-0.2.0.tar.gz
@@ -76,6 +76,7 @@ Patch3 : 0001-Patch-Eigen-for-TF-1.13.patch
 Patch4 : 0001-fixed-curl-dependency-issue.patch
 Patch5 : 0001-Updated-curl.patch
 Patch6 : Add-grpc-fix-for-gettid.patch
+Patch7 : CVE-2019-15133.patch
 
 #Source104: 0001-enum34-is-only-required-for-Python-3.4.patch
 
@@ -131,6 +132,7 @@ TensorFlow
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
+%patch7 -p1
 
 %build
 export LANG=C
