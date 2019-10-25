@@ -1,0 +1,26 @@
+From ca34d88d6d33d71459e174cc888bc79e6ea06e6c Mon Sep 17 00:00:00 2001
+From: Choong Yin Thong <yin.thong.choong@intel.com>
+Date: Thu, 24 Oct 2019 16:05:02 +0800
+Subject: [PATCH] Fixed build fail because license hash key is incorrect
+
+Signed-off-by: Choong Yin Thong <yin.thong.choong@intel.com>
+---
+ tensorflow/workspace.bzl | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tensorflow/workspace.bzl b/tensorflow/workspace.bzl
+index 55d7eb93..f51e6021 100755
+--- a/tensorflow/workspace.bzl
++++ b/tensorflow/workspace.bzl
+@@ -364,7 +364,7 @@ def tf_workspace(path_prefix = "", tf_repo_name = ""):
+         name = "org_python_license",
+         licenses = ["notice"],  # Python 2.0
+         sha256_urls = {
+-            "e76cacdf0bdd265ff074ccca03671c33126f597f39d0ed97bc3e5673d9170cf6": [
++            "fcaec9796c8cc3618899b4aeb62d1a4741830b682b2d8db502a05f9b93c08937": [
+                 "http://mirror.tensorflow.org/docs.python.org/2.7/_sources/license.rst.txt",
+                 "https://docs.python.org/2.7/_sources/license.rst.txt",
+             ],
+-- 
+2.22.0
+

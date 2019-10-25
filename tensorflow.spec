@@ -31,7 +31,7 @@ Source32 : https://github.com/google/nsync/archive/1.20.2.tar.gz
 Source33 : https://mirror.bazel.build/github.com/gflags/gflags/archive/f8a0efe03aa69b3336d8e228b37d4ccb17324b88.tar.gz
 Source34 : https://mirror.bazel.build/ftp.exim.org/pub/pcre/pcre-8.42.tar.gz
 Source35 : https://mirror.bazel.build/ufpr.dl.sourceforge.net/project/swig/swig/swig-3.0.8/swig-3.0.8.tar.gz
-Source36 : https://curl.haxx.se/download/curl-7.65.1.tar.gz
+Source36 : https://curl.haxx.se/download/curl-7.66.0.tar.gz
 Source37 : https://github.com/grpc/grpc/archive/4566c2a29ebec0835643b972eb99f4306c4234a3.tar.gz
 Source38 : https://mirror.bazel.build/github.com/antirez/linenoise/archive/c894b9e59f02203dbe4e2be657572cf88c4230c3.tar.gz
 Source39 : https://github.com/LMDB/lmdb/archive/LMDB_0.9.22.tar.gz
@@ -66,7 +66,11 @@ Source69 : https://github.com/google/pasta/archive/v0.1.2.tar.gz
 Source70 : https://pypi.python.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz
 Source71 : https://download.open-mpi.org/release/hwloc/v2.0/hwloc-2.0.3.tar.gz
 Source72 : https://github.com/intel/mkl-dnn/archive/v0.18.tar.gz
-Source73 : https://docs.python.org/2.7/_sources/license.rst.txt
+Source73 : https://github.com/bazelbuild/rules_pkg/releases/download/0.2.0/rules_pkg-0.2.0.tar.gz
+Source74 : https://github.com/bazelbuild/rules_cc/archive/0d5f3f2768c6ca2faca0079a997a97ce22997a0c.zip
+Source75 : https://github.com/bazelbuild/rules_proto/archive/b0cc14be5da05168b01db282fe93bdf17aa2b9f4.tar.gz
+Source76 : https://docs.python.org/2.7/_sources/license.rst.txt
+
 
 Source101: answers.txt
 Source103: MNIST_example.ipynb
@@ -77,6 +81,10 @@ Patch4 : 0001-fixed-curl-dependency-issue.patch
 Patch5 : 0001-Updated-curl.patch
 Patch6 : Add-grpc-fix-for-gettid.patch
 Patch7 : CVE-2019-15133.patch
+Patch8 : CVE-2019-5443.patch
+Patch9 : CVE-2019-5482.patch
+Patch10 : CVE-2019-5481.patch
+Patch11 : 0001-Fixed-build-fail-because-license-hash-key-is-incorre.patch
 
 #Source104: 0001-enum34-is-only-required-for-Python-3.4.patch
 
@@ -133,6 +141,10 @@ TensorFlow
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
+%patch8 -p1
+%patch9 -p1
+%patch10 -p1
+%patch11 -p1
 
 %build
 export LANG=C
@@ -213,6 +225,9 @@ InstallCache %{SOURCE70}
 InstallCache %{SOURCE71}
 InstallCache %{SOURCE72}
 InstallCache %{SOURCE73}
+InstallCache %{SOURCE74}
+InstallCache %{SOURCE75}
+InstallCache %{SOURCE76}
 
 
 ./configure < %{SOURCE101}
