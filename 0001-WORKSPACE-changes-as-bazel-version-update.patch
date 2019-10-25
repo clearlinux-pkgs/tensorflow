@@ -1,0 +1,74 @@
+From bf4518d533bd03384d33272cd5b763338ddb181d Mon Sep 17 00:00:00 2001
+From: kimsehun <se.hun.kim@intel.com>
+Date: Fri, 8 Nov 2019 18:10:04 +0000
+Subject: [PATCH] WORKSPACE changes as bazel version update
+
+WORKSPACE changes as bazel version update,
+need to locate io_bazel_rules_docker and configs
+
+Signed-off-by: kimsehun <se.hun.kim@intel.com>
+---
+ WORKSPACE | 47 +++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 47 insertions(+)
+
+diff --git a/WORKSPACE b/WORKSPACE
+index 74ea14d0fd..25083d5ceb 100644
+--- a/WORKSPACE
++++ b/WORKSPACE
+@@ -2,6 +2,53 @@ workspace(name = "org_tensorflow")
+ 
+ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
+ 
++# Download the rules_docker repository at release v0.12.1
++http_archive(
++    name = "io_bazel_rules_docker",
++    sha256 = "14ac30773fdb393ddec90e158c9ec7ebb3f8a4fd533ec2abbfd8789ad81a284b",
++    strip_prefix = "rules_docker-0.12.1",
++    urls = ["https://github.com/bazelbuild/rules_docker/releases/download/v0.12.1/rules_docker-v0.12.1.tar.gz"],
++)
++
++load("@io_bazel_rules_docker//toolchains/docker:toolchain.bzl",
++    docker_toolchain_configure="toolchain_configure"
++)
++docker_toolchain_configure(
++  name = "docker_config",
++  # OPTIONAL: Path to a directory which has a custom docker client config.json.
++  # See https://docs.docker.com/engine/reference/commandline/cli/#configuration-files
++  # for more details.
++  client_config="<enter absolute path to your docker config directory here>",
++)
++# End of OPTIONAL segment.
++
++load(
++    "@io_bazel_rules_docker//repositories:repositories.bzl",
++    container_repositories = "repositories",
++)
++container_repositories()
++
++# This is NOT needed when going through the language lang_image
++# "repositories" function(s).
++load("@io_bazel_rules_docker//repositories:deps.bzl", container_deps = "deps")
++
++container_deps()
++
++load(
++    "@io_bazel_rules_docker//container:container.bzl",
++    "container_pull",
++)
++
++container_pull(
++  name = "java_base",
++  registry = "gcr.io",
++  repository = "distroless/java",
++  # 'tag' is also supported, but digest is encouraged for reproducibility.
++  digest = "sha256:deadbeef",
++)
++
++load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
++
+ http_archive(
+     name = "io_bazel_rules_closure",
+     sha256 = "5b00383d08dd71f28503736db0500b6fb4dda47489ff5fc6bed42557c07c6ba9",
+-- 
+2.23.0
+
