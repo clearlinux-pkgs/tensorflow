@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.15.0
-Release  : 85
+Release  : 86
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.15.0.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.15.0.tar.gz
 
@@ -55,7 +55,6 @@ Source57 : http://ftp.exim.org/pub/pcre/pcre-8.39.tar.gz
 Source58 : https://github.com/unicode-org/icu/archive/release-62-1.tar.gz
 Source59 : https://github.com/llvm-mirror/llvm/archive/7a7e03f906aada0cf4b749b51213fe5784eeff84.tar.gz
 Source60 : https://github.com/bazelbuild/bazel-toolchains/archive/92dd8a7a518a2fb7ba992d47c8b38299fe0be825.tar.gz
-#Source61 : https://github.com/bazelbuild/rules_docker/archive/b8ff6a85ec359db3fd5657accd3e524daf12016d.tar.gz
 Source62 : https://github.com/bazelbuild/bazel-skylib/archive/1.0.2.tar.gz
 Source63 : https://github.com/bazelbuild/rules_apple/archive/0.13.0.tar.gz
 Source64 : http://mirror.bazel.build/github.com/keras-team/keras-applications/archive/1.0.6.tar.gz
@@ -223,7 +222,6 @@ InstallCache %{SOURCE57}
 InstallCache %{SOURCE58}
 InstallCache %{SOURCE59}
 InstallCache %{SOURCE60}
-#InstallCache %{SOURCE61}
 InstallCache %{SOURCE62}
 InstallCache %{SOURCE63}
 InstallCache %{SOURCE64}
