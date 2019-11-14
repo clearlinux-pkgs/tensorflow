@@ -31,7 +31,7 @@ Source32 : https://storage.googleapis.com/mirror.tensorflow.org/github.com/googl
 Source33 : https://github.com/gflags/gflags/archive/v2.2.1.tar.gz
 Source34 : https://mirror.bazel.build/ftp.exim.org/pub/pcre/pcre-8.42.tar.gz
 Source35 : https://mirror.bazel.build/ufpr.dl.sourceforge.net/project/swig/swig/swig-3.0.8/swig-3.0.8.tar.gz
-Source36 : https://storage.googleapis.com/mirror.tensorflow.org/curl.haxx.se/download/curl-7.65.3.tar.gz
+Source36 : https://storage.googleapis.com/mirror.tensorflow.org/curl.haxx.se/download/curl-7.66.0.tar.gz
 Source37 : https://github.com/grpc/grpc/archive/4566c2a29ebec0835643b972eb99f4306c4234a3.tar.gz
 Source38 : https://mirror.bazel.build/github.com/antirez/linenoise/archive/c894b9e59f02203dbe4e2be657572cf88c4230c3.tar.gz
 Source39 : https://github.com/LMDB/lmdb/archive/LMDB_0.9.22.tar.gz
@@ -95,6 +95,7 @@ Patch5 : 0001-Updated-curl.patch
 Patch6 : 0001-Add-grpc-fix-for-gettid.patch
 Patch7 : CVE-2019-15133.patch
 Patch8 : 0001-WORKSPACE-changes-as-bazel-version-update.patch
+Patch9 : CVE-2019-5481.patch
 
 #Source104: 0001-enum34-is-only-required-for-Python-3.4.patch
 
@@ -152,6 +153,7 @@ TensorFlow
 %patch6 -p1
 #%patch7 -p1
 %patch8 -p1
+%patch9 -p1
 
 %build
 export no_proxy=localhost,127.0.0.1,0.0.0.0
