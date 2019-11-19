@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.15.0
-Release  : 87
+Release  : 88
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.15.0.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.15.0.tar.gz
 
@@ -22,7 +22,7 @@ Source23 : https://www.sqlite.org/2019/sqlite-amalgamation-3280000.zip
 Source24 : http://pilotfiber.dl.sourceforge.net/project/giflib/giflib-5.2.1.tar.gz
 Source25 : https://mirror.bazel.build/pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz
 Source26 : https://files.pythonhosted.org/packages/99/80/f9482277c919d28bebd85813c0a70117214149a96b08981b72b63240b84c/astor-0.7.1.tar.gz
-Source27 : https://files.pythonhosted.org/packages/4e/35/11749bf99b2d4e3cceb4d55ca22590b0d7c2c62b9de38ac4a4a7f4687421/gast-0.2.2.tar.gz
+Source27 : https://files.pythonhosted.org/packages/1f/04/4e36c33f8eb5c5b6c622a1f4859352a6acca7ab387257d4b3c191d23ec1d/gast-0.3.2.tar.gz
 Source28 : https://mirror.bazel.build/pypi.python.org/packages/8a/48/a76be51647d0eb9f10e2a4511bf3ffb8cc1e6b14e9e4fab46173aa79f981/termcolor-1.1.0.tar.gz
 Source29 : https://github.com/abseil/abseil-py/archive/pypi-v0.7.1.tar.gz
 Source30 : https://mirror.bazel.build/pypi.python.org/packages/bc/cc/3cdb0a02e7e96f6c70bd971bc8a90b8463fda83e264fa9c5c1c98ceabd81/backports.weakref-1.0rc1.tar.gz
@@ -96,7 +96,7 @@ Patch6 : 0001-Add-grpc-fix-for-gettid.patch
 Patch7 : CVE-2019-15133.patch
 Patch8 : 0001-WORKSPACE-changes-as-bazel-version-update.patch
 Patch9 : CVE-2019-5481.patch
-
+Patch10 : 0001-gast-update-to-0.3.2.patch
 #Source104: 0001-enum34-is-only-required-for-Python-3.4.patch
 
 Summary  : No detailed summary available
@@ -154,6 +154,7 @@ TensorFlow
 #%patch7 -p1
 %patch8 -p1
 %patch9 -p1
+%patch10 -p1
 
 %build
 export no_proxy=localhost,127.0.0.1,0.0.0.0
