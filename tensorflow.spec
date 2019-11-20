@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.15.0
-Release  : 89
+Release  : 90
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.15.0.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.15.0.tar.gz
 
@@ -127,7 +127,7 @@ Requires: Werkzeug
 Requires: Markdown
 Requires: bleach
 Requires: backports.weakref
-Requires: opt-einsum
+Requires: opt_einsum
 Requires: tensorboard
 Requires: absl-py
 Requires: astor
