@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.15.0
-Release  : 91
+Release  : 92
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.15.0.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.15.0.tar.gz
 
@@ -97,6 +97,7 @@ Patch7 : CVE-2019-15133.patch
 Patch8 : 0001-WORKSPACE-changes-as-bazel-version-update.patch
 Patch9 : CVE-2019-5481.patch
 Patch10 : 0001-gast-update-to-0.3.2.patch
+Patch11 : 3a48a5c1541daa1fc3f49b9dbe0da247e7cd90f3.patch
 #Source104: 0001-enum34-is-only-required-for-Python-3.4.patch
 
 Summary  : No detailed summary available
@@ -156,6 +157,7 @@ TensorFlow
 %patch8 -p1
 %patch9 -p1
 %patch10 -p1
+%patch11 -p1
 
 %build
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -278,23 +280,23 @@ bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx512/
 %install
 export SOURCE_DATE_EPOCH=1485959355
 
-pip3 install --no-deps --user --force-reinstall /tmp/avx512/tensorflow-1.15.0-cp37-cp37m-linux_x86_64.whl
+pip3 install --no-deps --user --force-reinstall /tmp/avx512/tensorflow-1.15.0-cp38-cp38-linux_x86_64.whl
 for i in `find /builddir/.local/ -name "*.so.1" `; do mv $i $i.avx512 ; done
-mkdir -p /builddir/.local/lib/python3.7/site-packages/tensorflow_core/haswell/avx512_1
-mv /builddir/.local/lib/python3.7/site-packages/tensorflow_core/libtensorflow_framework.so.1.avx512 /builddir/.local/lib/python3.7/site-packages/tensorflow_core/haswell/avx512_1/libtensorflow_framework.so.1.avx512 || :
+mkdir -p /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/avx512_1
+mv /builddir/.local/lib/python3.8/site-packages/tensorflow_core/libtensorflow_framework.so.1.avx512 /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/avx512_1/libtensorflow_framework.so.1.avx512 || :
 
-pip3 install --no-deps --user --force-reinstall /tmp/avx2/tensorflow-1.15.0-cp37-cp37m-linux_x86_64.whl
+pip3 install --no-deps --user --force-reinstall /tmp/avx2/tensorflow-1.15.0-cp38-cp38-linux_x86_64.whl
 for i in `find /builddir/.local/ -name "*.so.1" `; do mv $i $i.avx2 ; done
-mv /builddir/.local/lib/python3.7/site-packages/tensorflow_core/libtensorflow_framework.so.1.avx2 /builddir/.local/lib/python3.7/site-packages/tensorflow_core/haswell/libtensorflow_framework.so.1.avx2 || :
+mv /builddir/.local/lib/python3.8/site-packages/tensorflow_core/libtensorflow_framework.so.1.avx2 /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/libtensorflow_framework.so.1.avx2 || :
 
 # Add python examples
 mkdir -p %{buildroot}/usr/share/tensorflow/eager/python/
 cp -r tensorflow/contrib/eager/python/examples/ %{buildroot}/usr/share/tensorflow/eager/python/
 
 install -m 0644 -D %{SOURCE103} %{buildroot}/usr/share/doc/tensorflow/MNIST_example.ipynb
-pip3 install --no-deps --force-reinstall --user /tmp/tensorflow-1.15.0-cp37-cp37m-linux_x86_64.whl
-mv /builddir/.local/lib/python3.7/site-packages/tensorflow_core/haswell/avx512_1/libtensorflow_framework.so.1.avx512 /builddir/.local/lib/python3.7/site-packages/tensorflow_core/haswell/avx512_1/libtensorflow_framework.so.1
-mv /builddir/.local/lib/python3.7/site-packages/tensorflow_core/haswell/libtensorflow_framework.so.1.avx2 /builddir/.local/lib/python3.7/site-packages/tensorflow_core/haswell/libtensorflow_framework.so.1
+pip3 install --no-deps --force-reinstall --user /tmp/tensorflow-1.15.0-cp38-cp38-linux_x86_64.whl
+mv /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/avx512_1/libtensorflow_framework.so.1.avx512 /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/avx512_1/libtensorflow_framework.so.1
+mv /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/libtensorflow_framework.so.1.avx2 /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/libtensorflow_framework.so.1
 rm /builddir/.local/bin/tf_upgrade_v2
 mv /builddir/.local/bin/ %{buildroot}/usr/
 mv /builddir/.local/lib/ %{buildroot}/usr/
@@ -308,6 +310,6 @@ mv /builddir/.local/lib/ %{buildroot}/usr/
 /usr/bin/toco
 /usr/bin/toco_from_protos
 /usr/bin/estimator_ckpt_converter
-/usr/lib/python3.7/site-packages/*
+/usr/lib/python3*/site-packages/*
 /usr/share/doc/tensorflow/MNIST_example.ipynb
 /usr/share/tensorflow
