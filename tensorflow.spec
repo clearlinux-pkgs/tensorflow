@@ -1,11 +1,11 @@
 Name     : tensorflow
-Version  : 1.15.0
-Release  : 92
-URL      : https://github.com/tensorflow/tensorflow/archive/v1.15.0.tar.gz
-Source0  : https://github.com/tensorflow/tensorflow/archive/v1.15.0.tar.gz
+Version  : 2.0.0
+Release  : 93
+URL      : https://github.com/tensorflow/tensorflow/archive/v2.0.0.tar.gz
+Source0  : https://github.com/tensorflow/tensorflow/archive/v2.0.0.tar.gz
 
 Source9 : https://github.com/markdryan/eigen-git-mirror/archive/tf1.13.tar.gz
-Source10 : https://bitbucket.org/eigen/eigen/get/49177915a14a.tar.gz
+Source10 : https://bitbucket.org/eigen/eigen/get/049af2f56331.tar.gz
 Source11 : https://github.com/abseil/abseil-cpp/archive/43ef2148c0936ebf7cb4be6b19927a9d9d145b8f.tar.gz
 Source12 : https://github.com/hfp/libxsmm/archive/1.11.tar.gz
 Source13 : https://mirror.bazel.build/github.com/google/or-tools/archive/253f7955c6a1fd805408fba2e42ac6d45b312d15.tar.gz
@@ -27,7 +27,7 @@ Source28 : https://mirror.bazel.build/pypi.python.org/packages/8a/48/a76be51647d
 Source29 : https://github.com/abseil/abseil-py/archive/pypi-v0.7.1.tar.gz
 Source30 : https://mirror.bazel.build/pypi.python.org/packages/bc/cc/3cdb0a02e7e96f6c70bd971bc8a90b8463fda83e264fa9c5c1c98ceabd81/backports.weakref-1.0rc1.tar.gz
 Source31 : https://github.com/protocolbuffers/protobuf/archive/310ba5ee72661c081129eb878c1bbcec936b20f0.tar.gz
-Source32 : https://storage.googleapis.com/mirror.tensorflow.org/github.com/google/nsync/archive/1.22.0.tar.gz
+Source32 : https://storage.googleapis.com/mirror.tensorflow.org/github.com/google/nsync/archive/1.20.2.tar.gz
 Source33 : https://github.com/gflags/gflags/archive/v2.2.1.tar.gz
 Source34 : https://mirror.bazel.build/ftp.exim.org/pub/pcre/pcre-8.42.tar.gz
 Source35 : https://mirror.bazel.build/ufpr.dl.sourceforge.net/project/swig/swig/swig-3.0.8/swig-3.0.8.tar.gz
@@ -53,7 +53,7 @@ Source54 : https://github.com/intel/ARM_NEON_2_x86_SSE/archive/1200fe90bb174a622
 Source55 : https://github.com/google/flatbuffers/archive/v1.11.0.tar.gz
 Source57 : http://ftp.exim.org/pub/pcre/pcre-8.39.tar.gz
 Source58 : https://github.com/unicode-org/icu/archive/release-62-1.tar.gz
-Source59 : https://github.com/llvm-mirror/llvm/archive/7a7e03f906aada0cf4b749b51213fe5784eeff84.tar.gz
+Source59 : https://github.com/llvm-mirror/llvm/archive/b7d166cebcf619a3691eed3f994384aab3d80fa6.tar.gz
 Source60 : https://github.com/bazelbuild/bazel-toolchains/archive/92dd8a7a518a2fb7ba992d47c8b38299fe0be825.tar.gz
 Source62 : https://github.com/bazelbuild/bazel-skylib/archive/1.0.2.tar.gz
 Source63 : https://github.com/bazelbuild/rules_apple/archive/0.13.0.tar.gz
@@ -80,7 +80,7 @@ Source84 : https://github.com/mborgerding/kissfft/archive/36dbc057604f00aacfc028
 Source85 : https://storage.googleapis.com/mirror.tensorflow.org/www.kurims.kyoto-u.ac.jp/~ooura/fft2d.tgz
 Source86 : https://github.com/pybind/pybind11/archive/v2.3.0.tar.gz
 Source87 : https://github.com/tensorflow/probability/archive/0.8.0.tar.gz
-Source88 : https://github.com/intel/mkl-dnn/archive/v0.20.6.tar.gz
+Source88 : https://github.com/intel/mkl-dnn/archive/v0.20.3.tar.gz
 Source89 : https://github.com/intel/mkl-dnn/archive/v1.0-pc2.tar.gz
 Source90 : https://github.com/raspberrypi/tools/archive/0e906ebc527eab1cdbf7adabff5b474da9562e9f.tar.gz
 Source91 : https://github.com/ROCmSoftwarePlatform/rocPRIM/archive/4a33d328f8352df1654271939da66914f2334424.tar.gz
@@ -98,6 +98,7 @@ Patch8 : 0001-WORKSPACE-changes-as-bazel-version-update.patch
 Patch9 : CVE-2019-5481.patch
 Patch10 : 0001-gast-update-to-0.3.2.patch
 Patch11 : 3a48a5c1541daa1fc3f49b9dbe0da247e7cd90f3.patch
+Patch12 : 0001-disable-ryu-build-with-avx512.patch
 #Source104: 0001-enum34-is-only-required-for-Python-3.4.patch
 
 Summary  : No detailed summary available
@@ -146,7 +147,7 @@ Requires : google-pasta
 TensorFlow
 
 %prep
-%setup -q  -n tensorflow-1.15.0
+%setup -q  -n tensorflow-2.0.0
 
 #%patch2 -p1
 #%patch3 -p1
@@ -158,6 +159,7 @@ TensorFlow
 %patch9 -p1
 %patch10 -p1
 %patch11 -p1
+%patch12 -p1
 
 %build
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -260,56 +262,54 @@ InstallCache %{SOURCE91}
 
 ./configure < %{SOURCE101}
 
-bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  --config=opt --copt=-Wno-sign-compare  --incompatible_no_support_tools_in_action_inputs=false   //tensorflow/tools/pip_package:build_pip_package
+bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  --config=v2 --config=opt --copt=-Wno-sign-compare  --incompatible_no_support_tools_in_action_inputs=false   //tensorflow/tools/pip_package:build_pip_package
 bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp
 
 bazel clean
 export TF_BUILD_MAVX=MAVX2
 ./configure < %{SOURCE101}
 mkdir /tmp/avx2
-bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  --config=opt --copt=-mavx2 --copt=-march=haswell --copt=-mfma  --incompatible_no_support_tools_in_action_inputs=false   //tensorflow/tools/pip_package:build_pip_package
+bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache --config=v2 --config=opt --copt=-mavx2 --copt=-march=haswell --copt=-mfma  --incompatible_no_support_tools_in_action_inputs=false   //tensorflow/tools/pip_package:build_pip_package
 bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx2/
 
 bazel clean
 export TF_BUILD_MAVX=MAVX512
 ./configure < %{SOURCE101}
 mkdir /tmp/avx512
-bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  --config=opt --copt=-mavx2 --copt=-march=skylake-avx512 --copt=-mfma  --incompatible_no_support_tools_in_action_inputs=false    //tensorflow/tools/pip_package:build_pip_package
+bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache --config=v2 --config=opt --copt=-mavx2 --copt=-march=skylake-avx512 --copt=-mfma  --incompatible_no_support_tools_in_action_inputs=false    //tensorflow/tools/pip_package:build_pip_package
 bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx512/
 
 %install
 export SOURCE_DATE_EPOCH=1485959355
 
-pip3 install --no-deps --user --force-reinstall /tmp/avx512/tensorflow-1.15.0-cp38-cp38-linux_x86_64.whl
-for i in `find /builddir/.local/ -name "*.so.1" `; do mv $i $i.avx512 ; done
+pip3 install --no-deps --user --force-reinstall /tmp/avx512/tensorflow-2.0.0-cp38-cp38-linux_x86_64.whl
+for i in `find /builddir/.local/ -name "*.so.2" `; do mv $i $i.avx512 ; done
 mkdir -p /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/avx512_1
-mv /builddir/.local/lib/python3.8/site-packages/tensorflow_core/libtensorflow_framework.so.1.avx512 /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/avx512_1/libtensorflow_framework.so.1.avx512 || :
+mv /builddir/.local/lib/python3.8/site-packages/tensorflow_core/libtensorflow_framework.so.2.avx512 /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/avx512_1/libtensorflow_framework.so.2.avx512 || :
 
-pip3 install --no-deps --user --force-reinstall /tmp/avx2/tensorflow-1.15.0-cp38-cp38-linux_x86_64.whl
-for i in `find /builddir/.local/ -name "*.so.1" `; do mv $i $i.avx2 ; done
-mv /builddir/.local/lib/python3.8/site-packages/tensorflow_core/libtensorflow_framework.so.1.avx2 /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/libtensorflow_framework.so.1.avx2 || :
+pip3 install --no-deps --user --force-reinstall /tmp/avx2/tensorflow-2.0.0-cp38-cp38-linux_x86_64.whl
+for i in `find /builddir/.local/ -name "*.so.2" `; do mv $i $i.avx2 ; done
+mv /builddir/.local/lib/python3.8/site-packages/tensorflow_core/libtensorflow_framework.so.2.avx2 /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/libtensorflow_framework.so.2.avx2 || :
 
 # Add python examples
 mkdir -p %{buildroot}/usr/share/tensorflow/eager/python/
 cp -r tensorflow/contrib/eager/python/examples/ %{buildroot}/usr/share/tensorflow/eager/python/
 
 install -m 0644 -D %{SOURCE103} %{buildroot}/usr/share/doc/tensorflow/MNIST_example.ipynb
-pip3 install --no-deps --force-reinstall --user /tmp/tensorflow-1.15.0-cp38-cp38-linux_x86_64.whl
-mv /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/avx512_1/libtensorflow_framework.so.1.avx512 /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/avx512_1/libtensorflow_framework.so.1
-mv /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/libtensorflow_framework.so.1.avx2 /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/libtensorflow_framework.so.1
+pip3 install --no-deps --force-reinstall --user /tmp/tensorflow-2.0.0-cp38-cp38-linux_x86_64.whl
+mv /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/avx512_1/libtensorflow_framework.so.2.avx512 /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/avx512_1/libtensorflow_framework.so.2
+mv /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/libtensorflow_framework.so.2.avx2 /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/libtensorflow_framework.so.2
 rm /builddir/.local/bin/tf_upgrade_v2
 mv /builddir/.local/bin/ %{buildroot}/usr/
 mv /builddir/.local/lib/ %{buildroot}/usr/
 
 %files
 %defattr(-,root,root,-)
-/usr/bin/freeze_graph
 /usr/bin/saved_model_cli
 %exclude /usr/bin/tensorboard
 /usr/bin/tflite_convert
 /usr/bin/toco
 /usr/bin/toco_from_protos
-/usr/bin/estimator_ckpt_converter
 /usr/lib/python3*/site-packages/*
 /usr/share/doc/tensorflow/MNIST_example.ipynb
 /usr/share/tensorflow
