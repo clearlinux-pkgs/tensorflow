@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 1.15.0
-Release  : 90
+Release  : 91
 URL      : https://github.com/tensorflow/tensorflow/archive/v1.15.0.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v1.15.0.tar.gz
 
