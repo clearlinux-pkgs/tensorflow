@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 2.0.0
-Release  : 93
+Release  : 94
 URL      : https://github.com/tensorflow/tensorflow/archive/v2.0.0.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v2.0.0.tar.gz
 
@@ -99,6 +99,8 @@ Patch9 : CVE-2019-5481.patch
 Patch10 : 0001-gast-update-to-0.3.2.patch
 Patch11 : 3a48a5c1541daa1fc3f49b9dbe0da247e7cd90f3.patch
 Patch12 : 0001-disable-ryu-build-with-avx512.patch
+Patch13 : 0001-Fix-TensorFlow-on-Python-3.8-logger-issue.patch
+Patch14 : 0002-Update-comment-explaining-python-3.8-change-for-find.patch
 #Source104: 0001-enum34-is-only-required-for-Python-3.4.patch
 
 Summary  : No detailed summary available
@@ -160,6 +162,8 @@ TensorFlow
 %patch10 -p1
 %patch11 -p1
 %patch12 -p1
+%patch13 -p1
+%patch14 -p1
 
 %build
 export no_proxy=localhost,127.0.0.1,0.0.0.0
