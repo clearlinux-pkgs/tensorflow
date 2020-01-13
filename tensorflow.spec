@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 2.0.0
-Release  : 95
+Release  : 96
 URL      : https://github.com/tensorflow/tensorflow/archive/v2.0.0.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v2.0.0.tar.gz
 
@@ -143,6 +143,7 @@ Requires : Keras_Preprocessing
 Requires : termcolor
 Requires : wrapt
 Requires : google-pasta
+Requires : tensorflow-estimator
 
 
 %description
