@@ -1,8 +1,8 @@
 Name     : tensorflow
-Version  : 2.0.0
-Release  : 96
-URL      : https://github.com/tensorflow/tensorflow/archive/v2.0.0.tar.gz
-Source0  : https://github.com/tensorflow/tensorflow/archive/v2.0.0.tar.gz
+Version  : 2.0.1
+Release  : 97
+URL      : https://github.com/tensorflow/tensorflow/archive/v2.0.1.tar.gz
+Source0  : https://github.com/tensorflow/tensorflow/archive/v2.0.1.tar.gz
 
 Source9 : https://github.com/markdryan/eigen-git-mirror/archive/tf1.13.tar.gz
 Source10 : https://bitbucket.org/eigen/eigen/get/049af2f56331.tar.gz
@@ -18,7 +18,7 @@ Source19 : http://mirror.bazel.build/github.com/google/highwayhash/archive/fd3d9
 Source20 : https://mirror.bazel.build/www.nasm.us/pub/nasm/releasebuilds/2.13.03/nasm-2.13.03.tar.bz2
 Source21 : https://github.com/libjpeg-turbo/libjpeg-turbo/archive/2.0.0.tar.gz
 Source22 : https://github.com/glennrp/libpng/archive/v1.6.37.tar.gz
-Source23 : https://www.sqlite.org/2019/sqlite-amalgamation-3280000.zip
+Source23 : https://www.sqlite.org/2019/sqlite-amalgamation-3300100.zip
 Source24 : http://pilotfiber.dl.sourceforge.net/project/giflib/giflib-5.2.1.tar.gz
 Source25 : https://mirror.bazel.build/pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz
 Source26 : https://files.pythonhosted.org/packages/99/80/f9482277c919d28bebd85813c0a70117214149a96b08981b72b63240b84c/astor-0.7.1.tar.gz
@@ -95,7 +95,6 @@ Patch5 : 0001-Updated-curl.patch
 Patch6 : 0001-Add-grpc-fix-for-gettid.patch
 Patch7 : CVE-2019-15133.patch
 Patch8 : 0001-WORKSPACE-changes-as-bazel-version-update.patch
-Patch9 : CVE-2019-5481.patch
 Patch10 : 0001-gast-update-to-0.3.2.patch
 Patch11 : 3a48a5c1541daa1fc3f49b9dbe0da247e7cd90f3.patch
 Patch12 : 0001-disable-ryu-build-with-avx512.patch
@@ -150,7 +149,7 @@ Requires : tensorflow-estimator
 TensorFlow
 
 %prep
-%setup -q  -n tensorflow-2.0.0
+%setup -q  -n tensorflow-2.0.1
 
 #%patch2 -p1
 #%patch3 -p1
@@ -159,7 +158,6 @@ TensorFlow
 %patch6 -p1
 #%patch7 -p1
 %patch8 -p1
-%patch9 -p1
 %patch10 -p1
 %patch11 -p1
 %patch12 -p1
@@ -287,12 +285,12 @@ bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx512/
 %install
 export SOURCE_DATE_EPOCH=1485959355
 
-pip3 install --no-deps --user --force-reinstall /tmp/avx512/tensorflow-2.0.0-cp38-cp38-linux_x86_64.whl
+pip3 install --no-deps --user --force-reinstall /tmp/avx512/tensorflow-2.0.1-cp38-cp38-linux_x86_64.whl
 for i in `find /builddir/.local/ -name "*.so.2" `; do mv $i $i.avx512 ; done
 mkdir -p /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/avx512_1
 mv /builddir/.local/lib/python3.8/site-packages/tensorflow_core/libtensorflow_framework.so.2.avx512 /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/avx512_1/libtensorflow_framework.so.2.avx512 || :
 
-pip3 install --no-deps --user --force-reinstall /tmp/avx2/tensorflow-2.0.0-cp38-cp38-linux_x86_64.whl
+pip3 install --no-deps --user --force-reinstall /tmp/avx2/tensorflow-2.0.1-cp38-cp38-linux_x86_64.whl
 for i in `find /builddir/.local/ -name "*.so.2" `; do mv $i $i.avx2 ; done
 mv /builddir/.local/lib/python3.8/site-packages/tensorflow_core/libtensorflow_framework.so.2.avx2 /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/libtensorflow_framework.so.2.avx2 || :
 
@@ -301,7 +299,7 @@ mkdir -p %{buildroot}/usr/share/tensorflow/eager/python/
 cp -r tensorflow/contrib/eager/python/examples/ %{buildroot}/usr/share/tensorflow/eager/python/
 
 install -m 0644 -D %{SOURCE103} %{buildroot}/usr/share/doc/tensorflow/MNIST_example.ipynb
-pip3 install --no-deps --force-reinstall --user /tmp/tensorflow-2.0.0-cp38-cp38-linux_x86_64.whl
+pip3 install --no-deps --force-reinstall --user /tmp/tensorflow-2.0.1-cp38-cp38-linux_x86_64.whl
 mv /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/avx512_1/libtensorflow_framework.so.2.avx512 /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/avx512_1/libtensorflow_framework.so.2
 mv /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/libtensorflow_framework.so.2.avx2 /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/libtensorflow_framework.so.2
 rm /builddir/.local/bin/tf_upgrade_v2
