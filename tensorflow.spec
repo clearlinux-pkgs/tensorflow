@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 2.0.1
-Release  : 98
+Release  : 99
 URL      : https://github.com/tensorflow/tensorflow/archive/v2.0.1.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v2.0.1.tar.gz
 
