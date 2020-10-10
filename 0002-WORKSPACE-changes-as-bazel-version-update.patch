@@ -1,4 +1,4 @@
-From bf4518d533bd03384d33272cd5b763338ddb181d Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: kimsehun <se.hun.kim@intel.com>
 Date: Fri, 8 Nov 2019 18:10:04 +0000
 Subject: [PATCH] WORKSPACE changes as bazel version update
@@ -6,18 +6,21 @@ Subject: [PATCH] WORKSPACE changes as bazel version update
 WORKSPACE changes as bazel version update,
 need to locate io_bazel_rules_docker and configs
 
+[pmccarty]: After upstream commit 6a6071412a2 lands in a release, I
+expect we can drop this patch. So, tensorflow >= 2.4.0.
+
 Signed-off-by: kimsehun <se.hun.kim@intel.com>
 ---
  WORKSPACE | 47 +++++++++++++++++++++++++++++++++++++++++++++++
  1 file changed, 47 insertions(+)
 
 diff --git a/WORKSPACE b/WORKSPACE
-index 74ea14d0fd..25083d5ceb 100644
+index ea741c31..83f20987 100644
 --- a/WORKSPACE
 +++ b/WORKSPACE
 @@ -2,6 +2,53 @@ workspace(name = "org_tensorflow")
  
- load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
+ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
  
 +# Download the rules_docker repository at release v0.12.1
 +http_archive(
@@ -69,6 +72,3 @@ index 74ea14d0fd..25083d5ceb 100644
  http_archive(
      name = "io_bazel_rules_closure",
      sha256 = "5b00383d08dd71f28503736db0500b6fb4dda47489ff5fc6bed42557c07c6ba9",
--- 
-2.23.0
-

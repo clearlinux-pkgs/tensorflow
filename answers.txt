@@ -1,7 +1,5 @@
 /usr/bin/python3
 
-y
-n
 n
 n
 n

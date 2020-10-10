@@ -1,313 +1,381 @@
 Name     : tensorflow
-Version  : 2.0.1
-Release  : 99
-URL      : https://github.com/tensorflow/tensorflow/archive/v2.0.1.tar.gz
-Source0  : https://github.com/tensorflow/tensorflow/archive/v2.0.1.tar.gz
-
-Source9 : https://github.com/markdryan/eigen-git-mirror/archive/tf1.13.tar.gz
-Source10 : https://bitbucket.org/eigen/eigen/get/049af2f56331.tar.gz
-Source11 : https://github.com/abseil/abseil-cpp/archive/43ef2148c0936ebf7cb4be6b19927a9d9d145b8f.tar.gz
-Source12 : https://github.com/hfp/libxsmm/archive/1.11.tar.gz
-Source13 : https://mirror.bazel.build/github.com/google/or-tools/archive/253f7955c6a1fd805408fba2e42ac6d45b312d15.tar.gz
-Source14 : https://github.com/google/re2/archive/506cfa4bffd060c06ec338ce50ea3468daa6c814.tar.gz
-Source15 : https://github.com/googleapis/google-cloud-cpp/archive/v0.10.0.tar.gz
-Source16 : https://github.com/bazelbuild/rules_closure/archive/308b05b2419edb5c8ee0471b67a40403df940149.tar.gz
-Source17 : https://github.com/google/gemmlowp/archive/12fed0cd7cfcd9e169bf1925bc3a7a58725fdcc3.zip
-Source18 : https://mirror.bazel.build/github.com/google/farmhash/archive/816a4ae622e964763ca0862d9dbd19324a1eaf45.tar.gz
-Source19 : http://mirror.bazel.build/github.com/google/highwayhash/archive/fd3d9af80465e4383162e4a7c5e2f406e82dd968.tar.gz
-Source20 : https://mirror.bazel.build/www.nasm.us/pub/nasm/releasebuilds/2.13.03/nasm-2.13.03.tar.bz2
-Source21 : https://github.com/libjpeg-turbo/libjpeg-turbo/archive/2.0.0.tar.gz
-Source22 : https://github.com/glennrp/libpng/archive/v1.6.37.tar.gz
-Source23 : https://www.sqlite.org/2019/sqlite-amalgamation-3300100.zip
-Source24 : http://pilotfiber.dl.sourceforge.net/project/giflib/giflib-5.2.1.tar.gz
-Source25 : https://mirror.bazel.build/pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz
-Source26 : https://files.pythonhosted.org/packages/99/80/f9482277c919d28bebd85813c0a70117214149a96b08981b72b63240b84c/astor-0.7.1.tar.gz
-Source27 : https://files.pythonhosted.org/packages/1f/04/4e36c33f8eb5c5b6c622a1f4859352a6acca7ab387257d4b3c191d23ec1d/gast-0.3.2.tar.gz
-Source28 : https://mirror.bazel.build/pypi.python.org/packages/8a/48/a76be51647d0eb9f10e2a4511bf3ffb8cc1e6b14e9e4fab46173aa79f981/termcolor-1.1.0.tar.gz
-Source29 : https://github.com/abseil/abseil-py/archive/pypi-v0.7.1.tar.gz
-Source30 : https://mirror.bazel.build/pypi.python.org/packages/bc/cc/3cdb0a02e7e96f6c70bd971bc8a90b8463fda83e264fa9c5c1c98ceabd81/backports.weakref-1.0rc1.tar.gz
-Source31 : https://github.com/protocolbuffers/protobuf/archive/310ba5ee72661c081129eb878c1bbcec936b20f0.tar.gz
-Source32 : https://storage.googleapis.com/mirror.tensorflow.org/github.com/google/nsync/archive/1.20.2.tar.gz
-Source33 : https://github.com/gflags/gflags/archive/v2.2.1.tar.gz
-Source34 : https://mirror.bazel.build/ftp.exim.org/pub/pcre/pcre-8.42.tar.gz
-Source35 : https://mirror.bazel.build/ufpr.dl.sourceforge.net/project/swig/swig/swig-3.0.8/swig-3.0.8.tar.gz
-Source36 : https://storage.googleapis.com/mirror.tensorflow.org/curl.haxx.se/download/curl-7.66.0.tar.gz
-Source37 : https://github.com/grpc/grpc/archive/4566c2a29ebec0835643b972eb99f4306c4234a3.tar.gz
-Source38 : https://mirror.bazel.build/github.com/antirez/linenoise/archive/c894b9e59f02203dbe4e2be657572cf88c4230c3.tar.gz
-Source39 : https://github.com/LMDB/lmdb/archive/LMDB_0.9.22.tar.gz
-Source40 : https://github.com/open-source-parsers/jsoncpp/archive/1.8.4.tar.gz
-Source41 : https://github.com/google/boringssl/archive/7f634429a04abc48e2eb041c81c5235816c96514.tar.gz
-Source42 : https://mirror.bazel.build/zlib.net/zlib-1.2.11.tar.gz
-Source43 : https://mirror.bazel.build/www.kurims.kyoto-u.ac.jp/~ooura/fft.tgz
-Source44 : https://mirror.bazel.build/github.com/google/snappy/archive/1.1.7.tar.gz
-Source45 : https://mirror.bazel.build/github.com/jemalloc/jemalloc/archive/4.4.0.tar.gz
-Source46 : https://mirror.bazel.build/github.com/google/pprof/archive/c0fb62ec88c411cc91194465e54db2632845b650.tar.gz
-Source47 : https://github.com/google/double-conversion/archive/3992066a95b823efc8ccc1baf82a1cfc73f6e9b8.zip
-Source48 : https://github.com/google/googletest/archive/b6cd405286ed8635ece71c72f118e659f4ade3fb.zip
-Source49 : https://github.com/edenhill/librdkafka/archive/v0.11.5.tar.gz
-Source50 : https://github.com/aws/aws-sdk-cpp/archive/1.5.8.tar.gz
-Source51 : https://mirror.bazel.build/github.com/cython/cython/archive/0.28.4.tar.gz
-Source52 : https://github.com/NVlabs/cub/archive/1.8.0.zip
-Source53 : https://github.com/googleapis/googleapis/archive/f81082ea1e2f85c43649bee26e0d9871d4b41cdb.zip
-Source54 : https://github.com/intel/ARM_NEON_2_x86_SSE/archive/1200fe90bb174a6224a525ee60148671a786a71f.tar.gz
-Source55 : https://github.com/google/flatbuffers/archive/v1.11.0.tar.gz
-Source57 : http://ftp.exim.org/pub/pcre/pcre-8.39.tar.gz
-Source58 : https://github.com/unicode-org/icu/archive/release-62-1.tar.gz
-Source59 : https://github.com/llvm-mirror/llvm/archive/b7d166cebcf619a3691eed3f994384aab3d80fa6.tar.gz
-Source60 : https://github.com/bazelbuild/bazel-toolchains/archive/92dd8a7a518a2fb7ba992d47c8b38299fe0be825.tar.gz
-Source62 : https://github.com/bazelbuild/bazel-skylib/archive/1.0.2.tar.gz
-Source63 : https://github.com/bazelbuild/rules_apple/archive/0.13.0.tar.gz
-Source64 : http://mirror.bazel.build/github.com/keras-team/keras-applications/archive/1.0.6.tar.gz
-Source65 : https://github.com/nanopb/nanopb/archive/f8ac463766281625ad710900479130c7fcb4d63b.tar.gz
-Source67 : https://github.com/bazelbuild/rules_swift/releases/download/0.11.1/rules_swift.0.11.1.tar.gz
-Source68 : https://github.com/GrahamDumpleton/wrapt/archive/1.11.1.tar.gz
-Source69 : https://github.com/google/pasta/archive/v0.1.2.tar.gz
-Source70 : https://pypi.python.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz
-Source71 : https://download.open-mpi.org/release/hwloc/v2.0/hwloc-2.0.3.tar.gz
-Source72 : https://github.com/intel/mkl-dnn/releases/download/v0.20-rc/mklml_lnx_2019.0.5.20190502.tgz
-Source73 : https://storage.googleapis.com/mirror.tensorflow.org/docs.python.org/2.7/_sources/license.rst.txt
-Source74 : https://mirror.bazel.build/github.com/bazelbuild/rules_cc/archive/0d5f3f2768c6ca2faca0079a997a97ce22997a0c.zip
-Source75 : https://github.com/bazelbuild/rules_docker/releases/download/v0.12.1/rules_docker-v0.12.1.tar.gz
-Source76 : https://github.com/bazelbuild/rules_python/archive/f46e953f6e0315a3f884154f9395a32ec9999eab.tar.gz
-Source77 : https://github.com/bazelbuild/bazel-gazelle/releases/download/0.18.2/bazel-gazelle-0.18.2.tar.gz
-Source78 : https://storage.googleapis.com/bazel-mirror/github.com/bazelbuild/rules_go/releases/download/v0.20.1/rules_go-v0.20.1.tar.gz
-Source79 : https://dl.google.com/go/go1.13.3.linux-amd64.tar.gz
-Source80 : https://pypi.python.org/packages/f6/d6/44792ec668bcda7d91913c75237314e688f70415ab2acd7172c845f0b24f/opt_einsum-2.3.2.tar.gz
-Source81 : https://pypi.python.org/packages/c5/60/6ac26ad05857c601308d8fb9e87fa36d0ebf889423f47c3502ef034365db/functools32-3.2.3-2.tar.gz
-Source82 : https://mirror.bazel.build/github.com/bazelbuild/rules_java/archive/7cf3cefd652008d0a64a419c34c13bdca6c8f178.zip
-Source83 : https://storage.googleapis.com/mirror.tensorflow.org/github.com/keras-team/keras-applications/archive/1.0.8.tar.gz
-Source84 : https://github.com/mborgerding/kissfft/archive/36dbc057604f00aacfc0288ddad57e3b21cfc1b8.tar.gz
-Source85 : https://storage.googleapis.com/mirror.tensorflow.org/www.kurims.kyoto-u.ac.jp/~ooura/fft2d.tgz
-Source86 : https://github.com/pybind/pybind11/archive/v2.3.0.tar.gz
-Source87 : https://github.com/tensorflow/probability/archive/0.8.0.tar.gz
-Source88 : https://github.com/intel/mkl-dnn/archive/v0.20.3.tar.gz
-Source89 : https://github.com/intel/mkl-dnn/archive/v1.0-pc2.tar.gz
-Source90 : https://github.com/raspberrypi/tools/archive/0e906ebc527eab1cdbf7adabff5b474da9562e9f.tar.gz
-Source91 : https://github.com/ROCmSoftwarePlatform/rocPRIM/archive/4a33d328f8352df1654271939da66914f2334424.tar.gz
-
-Source101: answers.txt
-Source103: MNIST_example.ipynb
-
-Patch2 : setuptools.patch
-Patch3 : 0001-Patch-Eigen-for-TF-1.13.patch
-Patch4 : 0001-fixed-curl-dependency-issue.patch
-Patch5 : 0001-Updated-curl.patch
-Patch6 : 0001-Add-grpc-fix-for-gettid.patch
-Patch7 : CVE-2019-15133.patch
-Patch8 : 0001-WORKSPACE-changes-as-bazel-version-update.patch
-Patch10 : 0001-gast-update-to-0.3.2.patch
-Patch11 : 3a48a5c1541daa1fc3f49b9dbe0da247e7cd90f3.patch
-Patch12 : 0001-disable-ryu-build-with-avx512.patch
-Patch13 : 0001-Fix-TensorFlow-on-Python-3.8-logger-issue.patch
-Patch14 : 0002-Update-comment-explaining-python-3.8-change-for-find.patch
-#Source104: 0001-enum34-is-only-required-for-Python-3.4.patch
-
-Summary  : No detailed summary available
+Version  : 2.3.1
+Release  : 100
+URL      : https://github.com/tensorflow/tensorflow/archive/v2.3.1/tensorflow-2.3.1.tar.gz
+Source0  : https://github.com/tensorflow/tensorflow/archive/v2.3.1/tensorflow-2.3.1.tar.gz
+Summary  : Machine learning framework
 Group    : Development/Tools
 License  : Apache-2.0 GPL-3.0 MPL-2.0-no-copyleft-exception
-BuildRequires : pip
-
-BuildRequires : python3-dev
-BuildRequires : setuptools
-BuildRequires : wheel
-BuildRequires : openjdk
-BuildRequires : openjdk-dev
-BuildRequires : numpy
-#BuildRequires : six
-#BuildRequires : protobuf
-#BuildRequires : protobuf-c
-BuildRequires : bazel
-BuildRequires : Keras
-BuildRequires : Keras_Applications
-BuildRequires : Keras_Preprocessing
-BuildRequires : mkl-dnn-dev
-BuildRequires : c-ares-dev
-
-
-
-
-Requires: Werkzeug
-Requires: Markdown
-Requires: bleach
-Requires: backports.weakref
-Requires: opt_einsum
-Requires: tensorboard
-Requires: absl-py
-Requires: astor
-Requires: grpcio
-Requires: gast
 Requires : Keras
 Requires : Keras_Applications
 Requires : Keras_Preprocessing
+Requires : Markdown
+Requires : Werkzeug
+Requires : absl-py
+Requires : astor
+Requires : astunparse
+Requires : backports.weakref
+Requires : bleach
+Requires : gast
+Requires : google-pasta
+Requires : grpcio
+Requires : h5py
+Requires : opt_einsum
+Requires : protobuf
+Requires : tensorboard
+Requires : tensorflow-estimator
 Requires : termcolor
 Requires : wrapt
-Requires : google-pasta
-Requires : tensorflow-estimator
+Requires : wheel
+Requires : six
+BuildRequires : Keras
+BuildRequires : Keras_Applications
+BuildRequires : Keras_Preprocessing
+BuildRequires : bazel
+BuildRequires : c-ares-dev
+BuildRequires : gcc9
+BuildRequires : gcc9-dev
+BuildRequires : mkl-dnn-dev
+BuildRequires : numpy
+BuildRequires : openjdk
+BuildRequires : openjdk-dev
+BuildRequires : pip
+BuildRequires : protobuf
+BuildRequires : protobuf-c
+BuildRequires : python3-dev
+BuildRequires : setuptools
+BuildRequires : six
+BuildRequires : wheel
 
+# SOURCES BEGIN
+Source10: http://mirror.tensorflow.org/files.pythonhosted.org/packages/c7/11/345f3173809cea7f1a193bfbf02403fff250a3360e0e118a1630985e547d/dill-0.3.1.1.tar.gz
+Source11: https://dl.google.com/go/go1.13.3.linux-amd64.tar.gz
+Source12: https://files.pythonhosted.org/packages/83/4a/07c7e59cef23fb147454663c3271c21da68ba2ab141427c20548ae5a8a4d/gast-0.4.0.tar.gz
+Source13: https://files.pythonhosted.org/packages/ec/c4/8c651f3240a73c28a218194f3d527eb2be5a173d08501060cdee84ade33f/tblib-1.3.2.tar.gz
+Source14: https://github.com/Maratyszcza/FP16/archive/4dfe081cf6bcd15db339cf2680b9281b8451eeb3.zip
+Source15: https://github.com/Maratyszcza/psimd/archive/072586a71b55b7f8c584153d223e95687148a900.zip
+Source16: https://github.com/Maratyszcza/pthreadpool/archive/029c88620802e1361ccf41d1970bd5b07fd6b7bb.zip
+Source17: https://github.com/aws/aws-sdk-cpp/archive/1.7.336.tar.gz
+Source18: https://github.com/awslabs/aws-c-common/archive/v0.4.29.tar.gz
+Source19: https://github.com/awslabs/aws-c-event-stream/archive/v0.1.4.tar.gz
+Source20: https://github.com/awslabs/aws-checksums/archive/v0.1.5.tar.gz
+Source21: https://github.com/bazelbuild/bazel-gazelle/releases/download/0.18.2/bazel-gazelle-0.18.2.tar.gz
+Source22: https://github.com/bazelbuild/bazel-skylib/archive/1.0.2.tar.gz
+Source23: https://github.com/bazelbuild/rules_docker/releases/download/v0.12.1/rules_docker-v0.12.1.tar.gz
+Source24: https://github.com/bazelbuild/rules_go/releases/download/v0.20.1/rules_go-v0.20.1.tar.gz
+Source25: https://github.com/bazelbuild/rules_python/archive/f46e953f6e0315a3f884154f9395a32ec9999eab.tar.gz
+Source26: https://github.com/c-ares/c-ares/archive/e982924acee7f7313b4baa4ee5ec000c5e373c30.tar.gz
+Source27: https://github.com/google/XNNPACK/archive/8b283aa30a3186c6e640aed520543e9c067132d2.zip
+Source28: https://github.com/llvm/llvm-project/archive/7e825abd5704ce28b166f9463d4bd304348fd2a9.tar.gz
+Source29: https://github.com/protocolbuffers/upb/archive/9effcbcb27f0a665f9f345030188c0b291e32482.tar.gz
+Source30: https://mirror.bazel.build/github.com/bazelbuild/rules_java/archive/7cf3cefd652008d0a64a419c34c13bdca6c8f178.zip
+Source31: https://mirror.bazel.build/github.com/bazelbuild/rules_proto/archive/97d8af4dc474595af3900dd85cb3a29ad28cc313.tar.gz
+Source32: https://storage.googleapis.com/mirror.tensorflow.org/curl.haxx.se/download/curl-7.69.1.tar.gz
+Source33: https://storage.googleapis.com/mirror.tensorflow.org/download.open-mpi.org/release/hwloc/v2.0/hwloc-2.0.3.tar.gz
+Source34: https://storage.googleapis.com/mirror.tensorflow.org/files.pythonhosted.org/packages/f3/af/4182184d3c338792894f34a62672919db7ca008c89abee9b564dd34d8029/astunparse-1.6.3.tar.gz
+Source35: https://storage.googleapis.com/mirror.tensorflow.org/github.com/GoogleCloudPlatform/tensorflow-gcp-tools/archive/2643d8caeba6ca2a6a0b46bb123953cb95b7e7d5.tar.gz
+Source36: https://storage.googleapis.com/mirror.tensorflow.org/github.com/GrahamDumpleton/wrapt/archive/1.11.1.tar.gz
+Source37: https://storage.googleapis.com/mirror.tensorflow.org/github.com/LMDB/lmdb/archive/LMDB_0.9.22.tar.gz
+Source38: https://storage.googleapis.com/mirror.tensorflow.org/github.com/Maratyszcza/FXdiv/archive/b408327ac2a15ec3e43352421954f5b1967701d1.zip
+Source39: https://storage.googleapis.com/mirror.tensorflow.org/github.com/NVlabs/cub/archive/1.8.0.zip
+Source40: https://storage.googleapis.com/mirror.tensorflow.org/github.com/NervanaSystems/ngraph-tf/archive/v0.9.0.zip
+Source41: https://storage.googleapis.com/mirror.tensorflow.org/github.com/NervanaSystems/ngraph/archive/v0.11.0.tar.gz
+Source42: https://storage.googleapis.com/mirror.tensorflow.org/github.com/abseil/abseil-cpp/archive/df3ea785d8c30a9503321a3d35ee7d35808f190d.tar.gz
+Source43: https://storage.googleapis.com/mirror.tensorflow.org/github.com/abseil/abseil-py/archive/pypi-v0.9.0.tar.gz
+Source44: https://storage.googleapis.com/mirror.tensorflow.org/github.com/bazelbuild/apple_support/archive/501b4afb27745c4813a88ffa28acd901408014e4.tar.gz
+Source45: https://storage.googleapis.com/mirror.tensorflow.org/github.com/bazelbuild/bazel-toolchains/archive/92dd8a7a518a2fb7ba992d47c8b38299fe0be825.tar.gz
+Source46: https://storage.googleapis.com/mirror.tensorflow.org/github.com/bazelbuild/rules_android/archive/v0.1.1.zip
+Source47: https://storage.googleapis.com/mirror.tensorflow.org/github.com/bazelbuild/rules_apple/archive/5131f3d46794bf227d296c82f30c2499c9de3c5b.tar.gz
+Source48: https://storage.googleapis.com/mirror.tensorflow.org/github.com/bazelbuild/rules_cc/archive/01d4a48911d5e7591ecb1c06d3b8af47fe872371.zip
+Source49: https://storage.googleapis.com/mirror.tensorflow.org/github.com/bazelbuild/rules_closure/archive/308b05b2419edb5c8ee0471b67a40403df940149.tar.gz
+Source50: https://storage.googleapis.com/mirror.tensorflow.org/github.com/bazelbuild/rules_python/releases/download/0.0.1/rules_python-0.0.1.tar.gz
+Source51: https://storage.googleapis.com/mirror.tensorflow.org/github.com/bazelbuild/rules_swift/archive/3eeeb53cebda55b349d64c9fc144e18c5f7c0eb8.tar.gz
+Source52: https://storage.googleapis.com/mirror.tensorflow.org/github.com/cython/cython/archive/0.28.4.tar.gz
+Source53: https://storage.googleapis.com/mirror.tensorflow.org/github.com/dmlc/dlpack/archive/3efc489b55385936531a06ff83425b719387ec63.tar.gz
+Source54: https://storage.googleapis.com/mirror.tensorflow.org/github.com/glennrp/libpng/archive/v1.6.37.tar.gz
+Source55: https://storage.googleapis.com/mirror.tensorflow.org/github.com/google/boringssl/archive/80ca9f9f6ece29ab132cce4cf807a9465a18cfac.tar.gz
+Source56: https://storage.googleapis.com/mirror.tensorflow.org/github.com/google/double-conversion/archive/3992066a95b823efc8ccc1baf82a1cfc73f6e9b8.zip
+Source57: https://storage.googleapis.com/mirror.tensorflow.org/github.com/google/farmhash/archive/816a4ae622e964763ca0862d9dbd19324a1eaf45.tar.gz
+Source58: https://storage.googleapis.com/mirror.tensorflow.org/github.com/google/flatbuffers/archive/v1.12.0.tar.gz
+Source59: https://storage.googleapis.com/mirror.tensorflow.org/github.com/google/gemmlowp/archive/fda83bdc38b118cc6b56753bd540caa49e570745.zip
+Source60: https://storage.googleapis.com/mirror.tensorflow.org/github.com/google/highwayhash/archive/fd3d9af80465e4383162e4a7c5e2f406e82dd968.tar.gz
+Source61: https://storage.googleapis.com/mirror.tensorflow.org/github.com/google/nsync/archive/1.22.0.tar.gz
+Source62: https://storage.googleapis.com/mirror.tensorflow.org/github.com/google/pasta/archive/v0.1.8.tar.gz
+Source63: https://storage.googleapis.com/mirror.tensorflow.org/github.com/google/re2/archive/506cfa4bffd060c06ec338ce50ea3468daa6c814.tar.gz
+Source64: https://storage.googleapis.com/mirror.tensorflow.org/github.com/google/ruy/archive/34ea9f4993955fa1ff4eb58e504421806b7f2e8f.zip
+Source65: https://storage.googleapis.com/mirror.tensorflow.org/github.com/google/snappy/archive/1.1.8.tar.gz
+Source66: https://storage.googleapis.com/mirror.tensorflow.org/github.com/googleapis/google-cloud-cpp/archive/v1.14.0.tar.gz
+Source67: https://storage.googleapis.com/mirror.tensorflow.org/github.com/googleapis/googleapis/archive/541b1ded4abadcc38e8178680b0677f65594ea6f.zip
+Source68: https://storage.googleapis.com/mirror.tensorflow.org/github.com/grpc/grpc/archive/b54a5b338637f92bfcf4b0bc05e0f57a5fd8fadd.tar.gz
+Source69: https://storage.googleapis.com/mirror.tensorflow.org/github.com/hfp/libxsmm/archive/1.14.tar.gz
+Source70: https://storage.googleapis.com/mirror.tensorflow.org/github.com/intel/ARM_NEON_2_x86_SSE/archive/1200fe90bb174a6224a525ee60148671a786a71f.tar.gz
+Source71: https://storage.googleapis.com/mirror.tensorflow.org/github.com/intel/mkl-dnn/releases/download/v0.21/mklml_lnx_2019.0.5.20190502.tgz
+Source72: https://storage.googleapis.com/mirror.tensorflow.org/github.com/intel/mkl-dnn/releases/download/v0.21/mklml_mac_2019.0.5.20190502.tgz
+Source73: https://storage.googleapis.com/mirror.tensorflow.org/github.com/intel/mkl-dnn/releases/download/v0.21/mklml_win_2020.0.20190813.zip
+Source74: https://storage.googleapis.com/mirror.tensorflow.org/github.com/joe-kuo/sobol_data/archive/835a7d7b1ee3bc83e575e302a985c66ec4b65249.tar.gz
+Source75: https://storage.googleapis.com/mirror.tensorflow.org/github.com/libjpeg-turbo/libjpeg-turbo/archive/2.0.4.tar.gz
+Source76: https://storage.googleapis.com/mirror.tensorflow.org/github.com/mborgerding/kissfft/archive/36dbc057604f00aacfc0288ddad57e3b21cfc1b8.tar.gz
+Source77: https://storage.googleapis.com/mirror.tensorflow.org/github.com/nlohmann/json/archive/v3.4.0.tar.gz
+Source78: https://storage.googleapis.com/mirror.tensorflow.org/github.com/oneapi-src/oneDNN/archive/v0.21.3.tar.gz
+Source79: https://storage.googleapis.com/mirror.tensorflow.org/github.com/oneapi-src/oneDNN/archive/v1.4.tar.gz
+Source80: https://storage.googleapis.com/mirror.tensorflow.org/github.com/open-source-parsers/jsoncpp/archive/1.9.2.tar.gz
+Source81: https://storage.googleapis.com/mirror.tensorflow.org/github.com/petewarden/OouraFFT/archive/v1.0.tar.gz
+Source82: https://storage.googleapis.com/mirror.tensorflow.org/github.com/protocolbuffers/protobuf/archive/v3.9.2.zip
+Source83: https://storage.googleapis.com/mirror.tensorflow.org/github.com/pybind/pybind11/archive/v2.4.3.tar.gz
+Source84: https://storage.googleapis.com/mirror.tensorflow.org/github.com/pytorch/cpuinfo/archive/6cecd15784fcb6c5c0aa7311c6248879ce2cb8b2.zip
+Source85: https://storage.googleapis.com/mirror.tensorflow.org/github.com/pytorch/cpuinfo/archive/d5e37adf1406cf899d7d9ec1d317c47506ccb970.tar.gz
+Source86: https://storage.googleapis.com/mirror.tensorflow.org/github.com/unicode-org/icu/archive/release-64-2.zip
+Source87: https://storage.googleapis.com/mirror.tensorflow.org/gitlab.com/libeigen/eigen/-/archive/386d809bde475c65b7940f290efe80e6a05878c4/eigen-386d809bde475c65b7940f290efe80e6a05878c4.tar.gz
+Source88: https://storage.googleapis.com/mirror.tensorflow.org/pilotfiber.dl.sourceforge.net/project/giflib/giflib-5.2.1.tar.gz
+Source89: https://storage.googleapis.com/mirror.tensorflow.org/pypi.python.org/packages/8a/48/a76be51647d0eb9f10e2a4511bf3ffb8cc1e6b14e9e4fab46173aa79f981/termcolor-1.1.0.tar.gz
+Source90: https://storage.googleapis.com/mirror.tensorflow.org/pypi.python.org/packages/99/80/f9482277c919d28bebd85813c0a70117214149a96b08981b72b63240b84c/astor-0.7.1.tar.gz
+Source91: https://storage.googleapis.com/mirror.tensorflow.org/pypi.python.org/packages/bc/cc/3cdb0a02e7e96f6c70bd971bc8a90b8463fda83e264fa9c5c1c98ceabd81/backports.weakref-1.0rc1.tar.gz
+Source92: https://storage.googleapis.com/mirror.tensorflow.org/pypi.python.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz
+Source93: https://storage.googleapis.com/mirror.tensorflow.org/pypi.python.org/packages/c5/60/6ac26ad05857c601308d8fb9e87fa36d0ebf889423f47c3502ef034365db/functools32-3.2.3-2.tar.gz
+Source94: https://storage.googleapis.com/mirror.tensorflow.org/pypi.python.org/packages/f6/d6/44792ec668bcda7d91913c75237314e688f70415ab2acd7172c845f0b24f/opt_einsum-2.3.2.tar.gz
+Source95: https://storage.googleapis.com/mirror.tensorflow.org/pypi.python.org/packages/source/s/six/six-1.12.0.tar.gz
+Source96: https://storage.googleapis.com/mirror.tensorflow.org/www.nasm.us/pub/nasm/releasebuilds/2.13.03/nasm-2.13.03.tar.bz2
+Source97: https://storage.googleapis.com/mirror.tensorflow.org/www.sqlite.org/2020/sqlite-amalgamation-3330000.zip
+Source98: https://storage.googleapis.com/mirror.tensorflow.org/zlib.net/zlib-1.2.11.tar.gz
+# SOURCES END
+
+# From https://storage.googleapis.com/mirror.tensorflow.org/raw.githubusercontent.com/simonpercivall/astunparse/v1.6.2/LICENSE
+Source1000 : ASTUNPARSE_LICENSE
+# From https://storage.googleapis.com/mirror.tensorflow.org/docs.python.org/2.7/_sources/license.rst.txt
+# Note: We need the mirrored copy because the non-mirrored copy is a living
+# document. Since the mirrored copy was made, a copyright year and URL were
+# modified within the document.
+Source1001 : PYTHON2_LICENSE
+
+Source1010 : answers.txt
+Source1011 : MNIST_example.ipynb
+
+Patch1 : 0001-gast-update-to-0.4.0.patch
+Patch2 : 0002-WORKSPACE-changes-as-bazel-version-update.patch
+Patch3 : 0003-Provide-overload-to-cope-with-const-ness-change-of-N.patch
+Patch4 : 0004-Mark-bfloat16-ufunc-arguments-const-to-fix-compilati.patch
+Patch5 : 0005-Relax-numpy-requirement.patch
 
 %description
-TensorFlow
+TensorFlow is an end-to-end open source platform for machine learning. It has a
+comprehensive, flexible ecosystem of tools, libraries, and community resources
+that lets researchers push the state-of-the-art in ML and developers easily
+build and deploy ML-powered applications.
 
 %prep
-%setup -q  -n tensorflow-2.0.1
+%setup -q
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
+%patch5 -p1
 
-#%patch2 -p1
-#%patch3 -p1
-#%patch4 -p1
-#%patch5 -p1
-%patch6 -p1
-#%patch7 -p1
-%patch8 -p1
-%patch10 -p1
-%patch11 -p1
-%patch12 -p1
-%patch13 -p1
-%patch14 -p1
-
-%build
-export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1485959355
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${buildroot}/usr/lib64:${buildroot}/usr/lib:${builddir}/usr/://tensorflow/contrib
-
-InstallCache() {
-	sha256=`sha256sum $1 | cut -f1 -d" "`
-	mkdir -p /tmp/cache/content_addressable/sha256/$sha256/
-	cp $1 /tmp/cache/content_addressable/sha256/$sha256/file
+InstallCacheBazel() {
+  sha256=$(sha256sum $1 | cut -f1 -d" ")
+  mkdir -p /var/tmp/cache/content_addressable/sha256/$sha256
+  cp $1 /var/tmp/cache/content_addressable/sha256/$sha256/file
 }
 
-InstallCache %{SOURCE10}
-InstallCache %{SOURCE11}
-InstallCache %{SOURCE12}
-InstallCache %{SOURCE13}
-InstallCache %{SOURCE14}
-InstallCache %{SOURCE15}
-InstallCache %{SOURCE16}
-InstallCache %{SOURCE17}
-InstallCache %{SOURCE18}
-InstallCache %{SOURCE19}
+# CACHE BAZEL BEGIN
+InstallCacheBazel %{SOURCE10}
+InstallCacheBazel %{SOURCE11}
+InstallCacheBazel %{SOURCE12}
+InstallCacheBazel %{SOURCE13}
+InstallCacheBazel %{SOURCE14}
+InstallCacheBazel %{SOURCE15}
+InstallCacheBazel %{SOURCE16}
+InstallCacheBazel %{SOURCE17}
+InstallCacheBazel %{SOURCE18}
+InstallCacheBazel %{SOURCE19}
+InstallCacheBazel %{SOURCE20}
+InstallCacheBazel %{SOURCE21}
+InstallCacheBazel %{SOURCE22}
+InstallCacheBazel %{SOURCE23}
+InstallCacheBazel %{SOURCE24}
+InstallCacheBazel %{SOURCE25}
+InstallCacheBazel %{SOURCE26}
+InstallCacheBazel %{SOURCE27}
+InstallCacheBazel %{SOURCE28}
+InstallCacheBazel %{SOURCE29}
+InstallCacheBazel %{SOURCE30}
+InstallCacheBazel %{SOURCE31}
+InstallCacheBazel %{SOURCE32}
+InstallCacheBazel %{SOURCE33}
+InstallCacheBazel %{SOURCE34}
+InstallCacheBazel %{SOURCE35}
+InstallCacheBazel %{SOURCE36}
+InstallCacheBazel %{SOURCE37}
+InstallCacheBazel %{SOURCE38}
+InstallCacheBazel %{SOURCE39}
+InstallCacheBazel %{SOURCE40}
+InstallCacheBazel %{SOURCE41}
+InstallCacheBazel %{SOURCE42}
+InstallCacheBazel %{SOURCE43}
+InstallCacheBazel %{SOURCE44}
+InstallCacheBazel %{SOURCE45}
+InstallCacheBazel %{SOURCE46}
+InstallCacheBazel %{SOURCE47}
+InstallCacheBazel %{SOURCE48}
+InstallCacheBazel %{SOURCE49}
+InstallCacheBazel %{SOURCE50}
+InstallCacheBazel %{SOURCE51}
+InstallCacheBazel %{SOURCE52}
+InstallCacheBazel %{SOURCE53}
+InstallCacheBazel %{SOURCE54}
+InstallCacheBazel %{SOURCE55}
+InstallCacheBazel %{SOURCE56}
+InstallCacheBazel %{SOURCE57}
+InstallCacheBazel %{SOURCE58}
+InstallCacheBazel %{SOURCE59}
+InstallCacheBazel %{SOURCE60}
+InstallCacheBazel %{SOURCE61}
+InstallCacheBazel %{SOURCE62}
+InstallCacheBazel %{SOURCE63}
+InstallCacheBazel %{SOURCE64}
+InstallCacheBazel %{SOURCE65}
+InstallCacheBazel %{SOURCE66}
+InstallCacheBazel %{SOURCE67}
+InstallCacheBazel %{SOURCE68}
+InstallCacheBazel %{SOURCE69}
+InstallCacheBazel %{SOURCE70}
+InstallCacheBazel %{SOURCE71}
+InstallCacheBazel %{SOURCE72}
+InstallCacheBazel %{SOURCE73}
+InstallCacheBazel %{SOURCE74}
+InstallCacheBazel %{SOURCE75}
+InstallCacheBazel %{SOURCE76}
+InstallCacheBazel %{SOURCE77}
+InstallCacheBazel %{SOURCE78}
+InstallCacheBazel %{SOURCE79}
+InstallCacheBazel %{SOURCE80}
+InstallCacheBazel %{SOURCE81}
+InstallCacheBazel %{SOURCE82}
+InstallCacheBazel %{SOURCE83}
+InstallCacheBazel %{SOURCE84}
+InstallCacheBazel %{SOURCE85}
+InstallCacheBazel %{SOURCE86}
+InstallCacheBazel %{SOURCE87}
+InstallCacheBazel %{SOURCE88}
+InstallCacheBazel %{SOURCE89}
+InstallCacheBazel %{SOURCE90}
+InstallCacheBazel %{SOURCE91}
+InstallCacheBazel %{SOURCE92}
+InstallCacheBazel %{SOURCE93}
+InstallCacheBazel %{SOURCE94}
+InstallCacheBazel %{SOURCE95}
+InstallCacheBazel %{SOURCE96}
+InstallCacheBazel %{SOURCE97}
+InstallCacheBazel %{SOURCE98}
+# CACHE BAZEL END
 
+InstallCacheBazel %{SOURCE1000}
+InstallCacheBazel %{SOURCE1001}
 
-InstallCache %{SOURCE20}
-InstallCache %{SOURCE21}
-InstallCache %{SOURCE22}
-InstallCache %{SOURCE23}
-InstallCache %{SOURCE24}
-InstallCache %{SOURCE25}
-InstallCache %{SOURCE26}
-InstallCache %{SOURCE27}
-InstallCache %{SOURCE28}
-InstallCache %{SOURCE29}
+%build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1485959355
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${buildroot}/usr/lib64:${buildroot}/usr/lib:${builddir}/usr/://tensorflow/contrib
+export GCC_IGNORE_WERROR=1
 
+# external/upb fails to build with GCC 10...
+# https://github.com/tensorflow/tensorflow/issues/39467
+export CC=gcc-9
+export CXX=g++-9
 
-InstallCache %{SOURCE30}
-InstallCache %{SOURCE31}
-InstallCache %{SOURCE32}
-InstallCache %{SOURCE33}
-InstallCache %{SOURCE34}
-InstallCache %{SOURCE35}
-InstallCache %{SOURCE36}
-InstallCache %{SOURCE37}
-InstallCache %{SOURCE38}
-InstallCache %{SOURCE39}
+./configure < %{SOURCE1010}
 
+bazel --output_base=/var/tmp/bazel build \
+  --repository_cache=/var/tmp/cache \
+  --config=v2 \
+  --config=opt \
+  --copt=-Wno-sign-compare \
+  --record_rule_instantiation_callstack \
+  --verbose_failures \
+  //tensorflow/tools/pip_package:build_pip_package
 
-InstallCache %{SOURCE40}
-InstallCache %{SOURCE41}
-InstallCache %{SOURCE42}
-InstallCache %{SOURCE43}
-InstallCache %{SOURCE44}
-InstallCache %{SOURCE45}
-InstallCache %{SOURCE46}
-InstallCache %{SOURCE47}
-InstallCache %{SOURCE48}
-InstallCache %{SOURCE49}
-
-InstallCache %{SOURCE50}
-InstallCache %{SOURCE51}
-InstallCache %{SOURCE52}
-InstallCache %{SOURCE53}
-InstallCache %{SOURCE54}
-InstallCache %{SOURCE55}
-InstallCache %{SOURCE57}
-InstallCache %{SOURCE58}
-InstallCache %{SOURCE59}
-InstallCache %{SOURCE60}
-InstallCache %{SOURCE62}
-InstallCache %{SOURCE63}
-InstallCache %{SOURCE64}
-InstallCache %{SOURCE65}
-InstallCache %{SOURCE67}
-InstallCache %{SOURCE68}
-InstallCache %{SOURCE69}
-InstallCache %{SOURCE70}
-InstallCache %{SOURCE71}
-InstallCache %{SOURCE72}
-InstallCache %{SOURCE73}
-InstallCache %{SOURCE74}
-InstallCache %{SOURCE75}
-InstallCache %{SOURCE76}
-InstallCache %{SOURCE77}
-InstallCache %{SOURCE78}
-InstallCache %{SOURCE79}
-InstallCache %{SOURCE80}
-InstallCache %{SOURCE81}
-InstallCache %{SOURCE82}
-InstallCache %{SOURCE83}
-InstallCache %{SOURCE84}
-InstallCache %{SOURCE85}
-InstallCache %{SOURCE86}
-InstallCache %{SOURCE87}
-InstallCache %{SOURCE88}
-InstallCache %{SOURCE89}
-InstallCache %{SOURCE90}
-InstallCache %{SOURCE91}
-
-./configure < %{SOURCE101}
-
-bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache  --config=v2 --config=opt --copt=-Wno-sign-compare  --incompatible_no_support_tools_in_action_inputs=false   //tensorflow/tools/pip_package:build_pip_package
-bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp
-
+bazel-bin/tensorflow/tools/pip_package/build_pip_package /var/tmp
 bazel clean
+
 export TF_BUILD_MAVX=MAVX2
-./configure < %{SOURCE101}
-mkdir /tmp/avx2
-bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache --config=v2 --config=opt --copt=-mavx2 --copt=-march=haswell --copt=-mfma  --incompatible_no_support_tools_in_action_inputs=false   //tensorflow/tools/pip_package:build_pip_package
-bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx2/
+./configure < %{SOURCE1010}
+mkdir -pv /var/tmp/avx2
+bazel --output_base=/var/tmp/bazel build \
+  --repository_cache=/var/tmp/cache \
+  --config=v2 \
+  --config=opt \
+  --copt=-mavx2 \
+  --copt=-march=haswell \
+  --copt=-mfma \
+  --record_rule_instantiation_callstack \
+  --verbose_failures \
+  //tensorflow/tools/pip_package:build_pip_package
 
+bazel-bin/tensorflow/tools/pip_package/build_pip_package /var/tmp/avx2/
 bazel clean
+
 export TF_BUILD_MAVX=MAVX512
-./configure < %{SOURCE101}
-mkdir /tmp/avx512
-bazel --output_base=/tmp/bazel build --repository_cache=/tmp/cache --config=v2 --config=opt --copt=-mavx2 --copt=-march=skylake-avx512 --copt=-mfma  --incompatible_no_support_tools_in_action_inputs=false    //tensorflow/tools/pip_package:build_pip_package
-bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/avx512/
+./configure < %{SOURCE1010}
+mkdir -pv /var/tmp/avx512
+bazel --output_base=/var/tmp/bazel build \
+  --repository_cache=/var/tmp/cache \
+  --config=v2 \
+  --config=opt \
+  --copt=-mavx2 \
+  --copt=-march=skylake-avx512 \
+  --copt=-mfma \
+  --record_rule_instantiation_callstack \
+  --verbose_failures \
+  //tensorflow/tools/pip_package:build_pip_package
+
+bazel-bin/tensorflow/tools/pip_package/build_pip_package /var/tmp/avx512/
+
 
 %install
 export SOURCE_DATE_EPOCH=1485959355
 
-pip3 install --no-deps --user --force-reinstall /tmp/avx512/tensorflow-2.0.1-cp38-cp38-linux_x86_64.whl
-for i in `find /builddir/.local/ -name "*.so.2" `; do mv $i $i.avx512 ; done
-mkdir -p /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/avx512_1
-mv /builddir/.local/lib/python3.8/site-packages/tensorflow_core/libtensorflow_framework.so.2.avx512 /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/avx512_1/libtensorflow_framework.so.2.avx512 || :
+cpver="cp$(python3 -c "import sys; print(f'{sys.version_info[0]}{sys.version_info[1]}')")"
+wheel="tensorflow-%{version}-$cpver-$cpver-linux_x86_64.whl"
 
-pip3 install --no-deps --user --force-reinstall /tmp/avx2/tensorflow-2.0.1-cp38-cp38-linux_x86_64.whl
-for i in `find /builddir/.local/ -name "*.so.2" `; do mv $i $i.avx2 ; done
-mv /builddir/.local/lib/python3.8/site-packages/tensorflow_core/libtensorflow_framework.so.2.avx2 /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/libtensorflow_framework.so.2.avx2 || :
+pip3 install --no-deps --user --force-reinstall /var/tmp/avx512/"$wheel"
+for i in $(find $HOME/.local/ -name "*.so.2"); do
+  mv -v $i $i.avx512
+done
 
-# Add python examples
-mkdir -p %{buildroot}/usr/share/tensorflow/eager/python/
-cp -r tensorflow/contrib/eager/python/examples/ %{buildroot}/usr/share/tensorflow/eager/python/
+pip3 install --no-deps --user --force-reinstall /var/tmp/avx2/"$wheel"
+for i in $(find $HOME/.local/ -name "*.so.2"); do
+  mv -v $i $i.avx2
+done
 
-install -m 0644 -D %{SOURCE103} %{buildroot}/usr/share/doc/tensorflow/MNIST_example.ipynb
-pip3 install --no-deps --force-reinstall --user /tmp/tensorflow-2.0.1-cp38-cp38-linux_x86_64.whl
-mv /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/avx512_1/libtensorflow_framework.so.2.avx512 /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/avx512_1/libtensorflow_framework.so.2
-mv /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/libtensorflow_framework.so.2.avx2 /builddir/.local/lib/python3.8/site-packages/tensorflow_core/haswell/libtensorflow_framework.so.2
-rm /builddir/.local/bin/tf_upgrade_v2
-mv /builddir/.local/bin/ %{buildroot}/usr/
-mv /builddir/.local/lib/ %{buildroot}/usr/
+pip3 install --no-deps --user --force-reinstall /var/tmp/"$wheel"
+
+sitedir="$(python3 -c "import sys; print(sys.path[-1])")"
+
+avx512_dest="$HOME/.local/${sitedir#/usr/}/tensorflow/haswell/avx512_1"
+mkdir -pv $avx512_dest
+for i in $(find $HOME/.local/ -name "*.so.2.avx512"); do
+  base=$(basename $i)
+  mv -v $i "$avx512_dest"/"${base%.avx512}"
+done
+
+avx2_dest="$HOME/.local/${sitedir#/usr/}/tensorflow/haswell"
+for i in $(find $HOME/.local/ -name "*.so.2.avx2"); do
+  base=$(basename $i)
+  mv -v $i "$avx2_dest"/"${base%.avx2}"
+done
+
+rm -fv $HOME/.local/bin/tf_upgrade_v2
+mkdir -pv %{buildroot}/usr
+mv -v $HOME/.local/bin %{buildroot}/usr/
+mv -v $HOME/.local/lib %{buildroot}/usr/
+
+install -Dm0644 %{SOURCE1011} %{buildroot}/usr/share/doc/tensorflow/MNIST_example.ipynb
 
 %files
 %defattr(-,root,root,-)
+/usr/bin/estimator_ckpt_converter
 /usr/bin/saved_model_cli
 %exclude /usr/bin/tensorboard
 /usr/bin/tflite_convert
@@ -315,4 +383,3 @@ mv /builddir/.local/lib/ %{buildroot}/usr/
 /usr/bin/toco_from_protos
 /usr/lib/python3*/site-packages/*
 /usr/share/doc/tensorflow/MNIST_example.ipynb
-/usr/share/tensorflow

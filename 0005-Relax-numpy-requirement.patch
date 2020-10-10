@@ -1,0 +1,28 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Patrick McCarty <patrick.mccarty@intel.com>
+Date: Wed, 14 Oct 2020 01:14:54 +0000
+Subject: [PATCH] Relax numpy requirement
+
+The previous two patches apply fixes for numpy 1.19 compatibility. They
+were pulled from the master branch, since they are not available on the
+r2.3 branch at the moment.
+
+Reference: https://github.com/tensorflow/tensorflow/issues/43679
+Signed-off-by: Patrick McCarty <patrick.mccarty@intel.com>
+---
+ tensorflow/tools/pip_package/setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tensorflow/tools/pip_package/setup.py b/tensorflow/tools/pip_package/setup.py
+index f81302fb..9fe79089 100644
+--- a/tensorflow/tools/pip_package/setup.py
++++ b/tensorflow/tools/pip_package/setup.py
+@@ -60,7 +60,7 @@ REQUIRED_PACKAGES = [
+     'keras_preprocessing >= 1.1.1, < 1.2',
+     # TODO(mihaimaruseac): numpy 1.19.0 has ABI breakage
+     # https://github.com/numpy/numpy/pull/15355
+-    'numpy >= 1.16.0, < 1.19.0',
++    'numpy >= 1.16.0',
+     'opt_einsum >= 2.3.2',
+     'protobuf >= 3.9.2',
+     'tensorboard >= 2.3.0, < 3',
