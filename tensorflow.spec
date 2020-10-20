@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 2.3.1
-Release  : 100
+Release  : 101
 URL      : https://github.com/tensorflow/tensorflow/archive/v2.3.1/tensorflow-2.3.1.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v2.3.1/tensorflow-2.3.1.tar.gz
 Summary  : Machine learning framework
@@ -113,7 +113,7 @@ Source71: https://storage.googleapis.com/mirror.tensorflow.org/github.com/intel/
 Source72: https://storage.googleapis.com/mirror.tensorflow.org/github.com/intel/mkl-dnn/releases/download/v0.21/mklml_mac_2019.0.5.20190502.tgz
 Source73: https://storage.googleapis.com/mirror.tensorflow.org/github.com/intel/mkl-dnn/releases/download/v0.21/mklml_win_2020.0.20190813.zip
 Source74: https://storage.googleapis.com/mirror.tensorflow.org/github.com/joe-kuo/sobol_data/archive/835a7d7b1ee3bc83e575e302a985c66ec4b65249.tar.gz
-Source75: https://storage.googleapis.com/mirror.tensorflow.org/github.com/libjpeg-turbo/libjpeg-turbo/archive/2.0.4.tar.gz
+Source75: https://github.com/libjpeg-turbo/libjpeg-turbo/archive/2.0.5/libjpeg-turbo-2.0.5.tar.gz
 Source76: https://storage.googleapis.com/mirror.tensorflow.org/github.com/mborgerding/kissfft/archive/36dbc057604f00aacfc0288ddad57e3b21cfc1b8.tar.gz
 Source77: https://storage.googleapis.com/mirror.tensorflow.org/github.com/nlohmann/json/archive/v3.4.0.tar.gz
 Source78: https://storage.googleapis.com/mirror.tensorflow.org/github.com/oneapi-src/oneDNN/archive/v0.21.3.tar.gz
@@ -155,6 +155,7 @@ Patch2 : 0002-WORKSPACE-changes-as-bazel-version-update.patch
 Patch3 : 0003-Provide-overload-to-cope-with-const-ness-change-of-N.patch
 Patch4 : 0004-Mark-bfloat16-ufunc-arguments-const-to-fix-compilati.patch
 Patch5 : 0005-Relax-numpy-requirement.patch
+Patch6 : 0006-Update-libjpeg-turbo-to-2.0.5.patch
 
 %description
 TensorFlow is an end-to-end open source platform for machine learning. It has a
@@ -169,6 +170,7 @@ build and deploy ML-powered applications.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
 
 InstallCacheBazel() {
   sha256=$(sha256sum $1 | cut -f1 -d" ")
