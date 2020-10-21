@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 2.3.1
-Release  : 101
+Release  : 102
 URL      : https://github.com/tensorflow/tensorflow/archive/v2.3.1/tensorflow-2.3.1.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v2.3.1/tensorflow-2.3.1.tar.gz
 Summary  : Machine learning framework
@@ -294,7 +294,6 @@ bazel --output_base=/var/tmp/bazel build \
   --config=v2 \
   --config=opt \
   --copt=-Wno-sign-compare \
-  --record_rule_instantiation_callstack \
   --verbose_failures \
   //tensorflow/tools/pip_package:build_pip_package
 
@@ -311,7 +310,6 @@ bazel --output_base=/var/tmp/bazel build \
   --copt=-mavx2 \
   --copt=-march=haswell \
   --copt=-mfma \
-  --record_rule_instantiation_callstack \
   --verbose_failures \
   //tensorflow/tools/pip_package:build_pip_package
 
@@ -328,7 +326,6 @@ bazel --output_base=/var/tmp/bazel build \
   --copt=-mavx2 \
   --copt=-march=skylake-avx512 \
   --copt=-mfma \
-  --record_rule_instantiation_callstack \
   --verbose_failures \
   //tensorflow/tools/pip_package:build_pip_package
 
