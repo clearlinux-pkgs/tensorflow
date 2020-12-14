@@ -1,6 +1,6 @@
 Name     : tensorflow
 Version  : 2.3.1
-Release  : 102
+Release  : 103
 URL      : https://github.com/tensorflow/tensorflow/archive/v2.3.1/tensorflow-2.3.1.tar.gz
 Source0  : https://github.com/tensorflow/tensorflow/archive/v2.3.1/tensorflow-2.3.1.tar.gz
 Summary  : Machine learning framework
